@@ -1,7 +1,8 @@
+import './ProductSearch.css'
+
 const ProductSearch = () => {
   return (
     <>
-    ProductSearch
     </>
   )
 }

@@ -1,15 +1,17 @@
+import './Nav.css'
+
 const Nav = () => {
   const navigation = ['Join/Sign In', 'Home', 'Profile', 'Search', 'The Beat', 'Log Out'];
   return (
     <>
-      <ul className="nav justify-content-center" id="nav-bar">
+      <ul className="nav-bar" id="nav-bar">
 
         {/* <li>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTttVyCpYFMxCJ52VbotDCJAFJr7oB3PeqNOw&usqp=CAU" alt="makeup-brush-img" width="30" height="24"/>
         </li> */}
 
         {navigation.map((nav, index) => {
-          return <li key={index}><a href="">{nav}</a></li>
+          return <li className='li-items' key={index}><a className='links' href="">{nav}</a></li>
         })}
       </ul>
     </>
