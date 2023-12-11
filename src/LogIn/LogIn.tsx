@@ -16,6 +16,7 @@ const LogIn = () => {
     event.preventDefault()
     console.log(user)
   }
+  
   return (
     <>
       <form className="login-form" onSubmit={handleSubmit}>
@@ -28,7 +29,7 @@ const LogIn = () => {
 
         <input className="login-input" type="text" id="password" name="password" placeholder="Password" onChange={(event) => { setUser({ ...user, password: event.target.value }) }} /><br /><br />
 
-        <input type="submit" defaultValue="Submit" />
+        <button className='login-btn' type="submit" defaultValue="Submit">Log In</button>
       </form>
 
     </>

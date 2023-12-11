@@ -1,49 +1,69 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, FormEvent } from 'react'
 import './ProductSearch.css'
-// import { BsSearchHeartFill } from "react-icons/bs";
+import { BsSearchHeartFill } from "react-icons/bs";
 
 interface Makeup {
-  name: string
+  brand: string;
+  image: string;
+  item_name: string;
+  category: string;
+  description: string;
+  product_link: string;
 }
 
 const ProductSearch = () => {
   const [product, setProduct] = useState<Makeup>({
-    name: ''
+    brand: '',
+    image: '',
+    item_name: '',
+    category: '',
+    description: '',
+    product_link: ''
   })
-
 
   useEffect(() => {
     getProduct();
-  }, [product.name])
+  }, [product.brand, product.category, product.description, product.item_name])
 
   const getProduct = async () => {
-    const response = await fetch(`http://makeup-api.herokuapp.com/api/v1/products.json${product.name}`);
-    if (response.ok) {}
+    const response = await fetch(`http://makeup-api.herokuapp.com/api/v1/products.json?brand=${product.brand}`);
     const data = await response.json();
     console.log(data)
     setProduct({
-      name: data.brand
+      brand: data.brand,
+      image: data.api_featured_image,
+      item_name: data.item,
+      category: data.category,
+      description: data.description,
+      product_link: data.product_link
     })
+  }
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
   }
 
   return (
     <>
       <h1 className="search-header">Search your new favorite products!</h1>
-      
-      <form className="search-form">
-        <input className="search-input" type="text" id="search" name="search" placeholder="Search" onChange={(event) => { setProduct({ ...product, name: event.target.value }); }} />
-        {/* <button className='search-btn' type="submit" defaultValue="Submit">Search <BsSearchHeartFill /></button> */}
+
+      <form className="search-form" onSubmit={handleSubmit}>
+        <input className="search-input" type="text" id="search" name="search" placeholder="Search" onChange={(event) => { setProduct({ ...product, brand: event.target.value }); }} />
+        <button className='search-btn' type="submit" defaultValue="Submit">Search <BsSearchHeartFill /></button>
       </form>
 
-      <div className="card">
-        <img className='brand-image' src="" alt="" />
-        <div className="container">
-          <h4 className='brand-name'><b>Brand Name</b></h4>
-          <p className='product-name'>Product Name</p>
-          <p className="price">$19.99</p>
-          <p className="">Some text about the product</p>
+      {product.brand && (
+        <div className="card">
+          <div className="container">
+            <h4 className='brand-name'><b>{product.brand}</b></h4>
+            <img className='brand-image' src={product.image} alt="" />
+            <p className='product-name'>{product.item_name}</p>
+            <p className="category">{product.category}</p>
+            <p className="description">{product.description}</p>
+            <a href={product.product_link}>{product.product_link}</a>
+          </div>
         </div>
-      </div>
+      )}
 
     </>
   )
