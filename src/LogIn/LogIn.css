@@ -1,0 +1,14 @@
+.login-form {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.login-label {
+    display: flex;
+    justify-content: center;
+}
+
+.login-input {
+    margin-bottom: 15px;
+}
+
