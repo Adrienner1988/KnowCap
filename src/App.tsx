@@ -1,29 +1,28 @@
-import './index.css'
-import 'bootstrap/dist/css/bootstrap.css'
-import Nav from './Nav/Nav.tsx'
-import Meaning from './Meaning/Meaning.tsx'
-import BrandSpotlight from './BrandSpotlight/BrandSpotlight.tsx'
-import ProductSearch from './ProductSearch/ProductSearch.tsx'
-import SignUp from './SignUp/SignUp.tsx'
-import LogIn from './LogIn/LogIn.tsx'
-import Profile from './Profile/Profile.tsx'
-import TheBeat from './TheBeat/TheBeat.tsx'
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Meaning from './views/Meaning/Meaning.tsx';
+import ProductSearch from './views/ProductSearch/ProductSearch.tsx';
+import SignUp from './views/SignUp/SignUp.tsx';
+import LogIn from './views/LogIn/LogIn.tsx';
+import Profile from './views/Profile/Profile.tsx';
+import TheBeat from './views/TheBeat/TheBeat.tsx';
+import { Route, Routes } from 'react-router-dom';
+
 
 const App = () => {
   return (
     <>
-      <h1 className="main-header">Know Cap</h1>
-      <Nav />
-        <Meaning />
-        <BrandSpotlight />
-        <ProductSearch />
-        <SignUp />
-        <LogIn />
-        <Profile />
-        <TheBeat />
+      <Routes>
+        <Route path='/' element={<Meaning />} />
+        <Route path='/search' element={<ProductSearch />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<LogIn />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/beat' element={<TheBeat />} />
+      </Routes>
     </>
-  )
-}
+  );
+};
 export default App
 
 

@@ -1,8 +1,5 @@
-h1 {
-    text-align: center;
-  }
-  
-  #id {
+
+  .appBar {
     color: black;
     display: flex;
     justify-content: center;
@@ -10,9 +7,10 @@ h1 {
     padding: 0;
     display: inline;
     padding: 10px;
-    list-style-type: none;
-    background-color: #000;
+    background-color: black;
+   
   }
+  
   .links {
     color: blanchedalmond
   }

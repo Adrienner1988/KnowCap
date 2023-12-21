@@ -1,4 +1,4 @@
-import './BrandSpotlight.css'
+import './BrandSpotlight.css';
 
 const BrandSpotlight = () => {
   return (
@@ -8,6 +8,6 @@ const BrandSpotlight = () => {
         {/* <img className="spotlight-img" src="" alt="BK Beauty makeup brushes"/> */}
     </>
    
-  )
-}
+  );
+};
 export default BrandSpotlight
