@@ -16,6 +16,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { MdOutlineAddAPhoto } from "react-icons/md";
 
 
 interface IUser {
@@ -30,7 +31,6 @@ const Nav = () => {
     uid: '',
     email: ''
   })
-
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -49,7 +49,7 @@ const Nav = () => {
 
   // Tracking current user
   useEffect(() => {
-    const authenticate = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         if (typeof user.email === 'string') {
           setUser({
@@ -59,11 +59,15 @@ const Nav = () => {
         } else {
           console.error('Invalid email type');
         }
+      } else {
+        setUser({
+          uid: '',
+          email: ''
+        })
       }
-      // Do nothing when the user is not authenticated, keep the existing user state
     });
 
-    return () => authenticate();
+    return () => unsubscribe();
   }, []);
 
 
@@ -96,7 +100,7 @@ const Nav = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu 
+            <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -112,32 +116,49 @@ const Nav = () => {
               onClose={handleCloseNavMenu}>
 
               <MenuItem onClick={handleCloseUserMenu}>
+                <div>
                 <Link to={'/'} key={'meaning'} >
+            
                   <Typography textAlign="center">Home</Typography>
                 </Link>
+                </div>
               </MenuItem>
 
               <MenuItem onClick={handleCloseUserMenu}>
+              <div>
                 <Link to={'/search'} key={'search'}>
-                  <Typography textAlign="center">Product Search</Typography>
+                  <Typography textAlign="center">Product Search </Typography>
                 </Link>
+                </div>
               </MenuItem>
 
               <MenuItem onClick={handleCloseUserMenu}>
+              <div>
+                <Link to={'/post'} key={'post'}>
+                  <Typography textAlign="center"><MdOutlineAddAPhoto /></Typography>
+                </Link>
+                </div>
+              </MenuItem>
+
+              <MenuItem onClick={handleCloseUserMenu}>
+              <div>
                 <Link to={'/beat'} key={'thebeat'}>
                   <Typography textAlign="center">The Beat</Typography>
                 </Link>
+                </div>
               </MenuItem>
 
               <MenuItem onClick={handleCloseUserMenu}>
+              <div>
                 <Link to={'/profile'} key={'profile'}>
                   <Typography textAlign="center">Profile</Typography>
                 </Link>
+                </div>
               </MenuItem>
             </Menu>
           </Box>
-         
-         {/* main nav section */}
+
+          {/* main nav section */}
           <Typography
             variant="h5"
             noWrap
@@ -152,24 +173,45 @@ const Nav = () => {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <div>
             <Link
               key={'message'}
               onClick={handleCloseNavMenu}
               to={'/'}
               className='text-light me-3'>
               Home</Link>
-
+              </div>
+              <div>
             <Link
               key={'search'}
               onClick={handleCloseNavMenu}
               to={'/search'}
               className='text-light me-3'>Product Search</Link>
+              </div>
 
+              <div>
+            <Link key={'post'}
+            onClick={handleCloseNavMenu}
+            to={'/post'}
+            className='text-light me-3'><MdOutlineAddAPhoto />
+            </Link>
+            </div>
+
+            <div>
             <Link
               key={'thebeat'}
               onClick={handleCloseNavMenu}
               to={'/beat'}
               className='text-light me-3'>The Beat</Link>
+              </div>
+
+              <div>
+              <Link
+              key={'profile'}
+              onClick={handleCloseNavMenu}
+              to={'/profile'}
+              className='text-light me-3'>Profile</Link>
+              </div>
           </Box>
 
           {/* profile picture, log in and out */}
@@ -199,24 +241,25 @@ const Nav = () => {
 
               {user ? (
                 <>
+                <div>
                   <Typography textAlign="center">{user.email}</Typography>
+                  </div>
 
-                  <Link to={'/profile'} key={'profile'}>
-                    <Typography textAlign="center">Profile</Typography>
-                  </Link>
-
+                  <div>
                   <Link to={'/login'} onClick={handleSignOut} key={'logout'}>
                     <Typography textAlign="center">Log Out</Typography>
                   </Link>
+                  </div>
                 </>
               ) : (
+                <div>
                 <Link to={'/login'} key={'login'}>
                   <Typography textAlign="center">Log In</Typography>
                 </Link>
+                </div>
               )}
             </Menu>
           </Box>
-
         </Toolbar>
       </Container>
     </AppBar>

@@ -7,6 +7,7 @@ import LogIn from './views/LogIn/LogIn.tsx';
 import Profile from './views/Profile/Profile.tsx';
 import TheBeat from './views/TheBeat/TheBeat.tsx';
 import { Route, Routes } from 'react-router-dom';
+import CreatePost from './views/CreatePost/CreatePost.tsx';
 
 
 const App = () => {
@@ -19,7 +20,9 @@ const App = () => {
         <Route path='/login' element={<LogIn />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/beat' element={<TheBeat />} />
+        <Route path='/post' element={<CreatePost />} />
       </Routes>
+      
     </>
   );
 };

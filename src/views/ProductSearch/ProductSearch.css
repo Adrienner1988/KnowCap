@@ -1,5 +1,6 @@
 .search-header {
     text-align: center;
+    margin-top: 20px;
 }
 
 .search-form {
@@ -16,10 +17,37 @@
     padding: 5px;
 }
 
+.brands {
+    margin-left: 20px;
+}
+
+.tag_list {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #000;
+    padding: 20px;
+    margin: 20px;
+}
+
+.tag {
+    letter-spacing: 1px;
+    line-height: 1.4;
+    font-size: 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
 /* Card */
 .card-container {
     padding: 2px 16px;
-    border: 5px solid yellowgreen;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 20px;
+    max-height: 400px;
+    /* get all same height, way to add more dropdown */
+
 }
 
 .brand-image {
@@ -27,12 +55,12 @@
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px;
     max-width: 300px;
     margin: auto;
     border: 5px solid blueviolet;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
@@ -46,3 +74,5 @@
 .product-name {
     color: #000;
 }
+
+#more {display: none;}
