@@ -14,6 +14,7 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../../firebase';
 import { Link, useNavigate } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
 
 
 
@@ -56,7 +57,6 @@ const LogIn = () => {
       console.error(error);
     }
   };
-
 
 
   return (
@@ -110,7 +110,7 @@ const LogIn = () => {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}>Log In</Button>
 
-              <Button onClick={signInWithGoogle}>Log In with Google</Button>
+              <Button onClick={signInWithGoogle} className='Google-btn'><FcGoogle /> Log In with Google</Button>
 
               <Grid container>
                 <Grid item xs>

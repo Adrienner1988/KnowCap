@@ -46,6 +46,8 @@ const SignUp = () => {
   });
   };
 
+  // ADD HOW TO SIGN UP WITH GOOGLE!! YOU CAN LOG IN BUT NOT SIGN UP, MAKES NO SENSE. 
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">

@@ -1,6 +1,7 @@
 .def-header {
     text-align: center;
-    padding-top: 10px;
+    padding-top: 20px;
+    font-weight: 900;
 }
 
 .def-header-1 {
@@ -9,30 +10,43 @@
 }
 
 .paragraph {
-    
+    text-align: center;
+}
+
+.know-cap {
+    text-align: center;
 }
 
 /* brand spotlight section */
 .spotlight-info {
-    text-align: center;
+    color: #fff;
   }
 
 .spotlight {
-    border: 5px solid yellow;  
-    margin: 30px;
+    margin: 80px auto;
+    width: 80%;
 }
 
 .spotlight-brand {
-    text-align: center;
+    font-size: 42px;
+    color: #fff;
   }
 
 .brand-spotlight-image {
     width: 300px;
     height: 300px;
-    padding-bottom: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto; 
+    margin-right: 15px;
+    float: left;
+    border: 3px solid #fff;
+    border-radius: 10px;
+}
+
+.loveIt {
+    padding-top: 15px;
+}
+
+.brandName {
+    color: #fff;
 }
 
 /* Makeup inspo section */
