@@ -1,12 +1,54 @@
 .post-header {
     text-align: center;
+    color: #fff;
 }
 
-.upload-btn {
-    padding-bottom: 15px;
+.main {
+    display: grid;
+    place-items: center;
+    margin: 10px;
 }
 
-.create-post-btn {
-    margin-bottom: 15px;
-    /* add add sign image in components */
+.form-container {
+    background-color: #a2745c;
+    width: 500px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 12px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid #fff;
+    place-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.form-container .input-info {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-info {
+   
+}
+
+label {
+    color: #fff;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.post-btn {
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #bb8565;
+    color: #f8e5c5;
+}
+
+.post-btn:hover {
+    background-color: #f8e5c5;
+    color: #1f1b1d;
+    transition: .3s;
 }

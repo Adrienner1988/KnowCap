@@ -5,9 +5,9 @@ import { useState } from 'react';
 import UseAuth from '../../componets/UseAuth/UseAuth';
 
 const Nav = () => {
-  const { user, handleSignOut } = UseAuth();
+  const {user, handleSignOut} = UseAuth();
 
-  const [ menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const handleClick = () =>{
     setMenuOpen(!menuOpen)

@@ -1,30 +1,59 @@
-import Nav from '../../componets/Nav/Nav'
-import './Profile.css'
+import { Timestamp, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import './Profile.css';
+import { useEffect, useState } from 'react';
+import { db } from '../../firebase';
+
+interface IPost {
+  id: string,
+  title: string,
+  caption: string,
+  imageUrl: string,
+  createdAt: Timestamp
+}
 
 const Profile = () => {
+  const [posts, setPosts] = useState<IPost[]>([]);
 
-  const handleChange = () => {
+  useEffect(() => {
+    const postRef = collection(db, 'Posts');
+    const q = query(postRef, orderBy('createdAt', 'desc'));
+    const unsub = onSnapshot(q, (snapshot) => {
+      const postsData: IPost[] = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      })) as IPost[];
+      setPosts(postsData);
+      console.log(postsData);
+    })
 
-  }
-
-  const uploadImage = () => {
-
-  }
-// display current users post horizontal 
-// add followers
-// like button
+    return () => {
+      unsub();
+    }
+  }, []);
 
   return (
     <>
-      <Nav />
-      <div className='profile-image'>
-        <input type='file' onChange={handleChange} />
-        <button className='profile-img-btn' onClick={uploadImage}>Upload</button>
-        <img src='https://as2.ftcdn.net/v2/jpg/05/89/93/27/1000_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.jpg' alt='avatar' className='avatar'/>
-      </div>
-
-      
+      {posts.length === 0 ? (
+        <p>No Post Found</p>
+      ) : (
+        posts.map(({id,
+          title,
+          caption,
+          imageUrl,
+          createdAt}) =>
+         <div className='profile-posts' key={id}>
+          <div>
+            <img src={imageUrl} alt='title'/>
+            <div className='post-info'>
+            <h2>{title}</h2>
+              <p>{caption}</p>
+              <p>{createdAt.toDate().toString()}</p>
+              </div>
+          </div>
+         </div>
+        )
+      )}
     </>
-  );
-};
+  )
+}
 export default Profile

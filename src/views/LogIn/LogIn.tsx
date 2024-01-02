@@ -17,8 +17,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 
 
-
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 const LogIn = () => {
@@ -57,7 +55,7 @@ const LogIn = () => {
       console.error(error);
     }
   };
-
+// add an alert that you are logged in
 
   return (
     <>

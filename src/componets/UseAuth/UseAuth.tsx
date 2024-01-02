@@ -46,10 +46,10 @@ const handleSignOut = () => {
             email: ''
         })
     }).catch((error) => {
-        console.error(error);
+        alert(`${error}`);
     });
-};
-return { user, handleSignOut };
-};
+}
+return { user, handleSignOut }
+}
 
 export default useAuth

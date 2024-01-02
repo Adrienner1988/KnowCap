@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { getStorage} from "firebase/storage";
+import { getStorage } from "firebase/storage";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -15,6 +15,9 @@ const firebaseConfig = {
   messagingSenderId: "964900998881",
   appId: import.meta.env.VITE_APP_ID
 };
+
+
+// http://localhost:5173/
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

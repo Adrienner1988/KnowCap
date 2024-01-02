@@ -1,5 +1,4 @@
 import './Meaning.css';
-import Nav from '../../componets/Nav/Nav';
 import { FaRegHeart } from "react-icons/fa6";
 import { FaRegComment } from "react-icons/fa";
 import { TbLocationShare } from "react-icons/tb";
@@ -8,8 +7,6 @@ import { TbLocationShare } from "react-icons/tb";
 const Meaning = () => {
   return (
     <>
-      <Nav />
-
       <h2 className='def-header'>Know Cap</h2>
       <h3 className='def-header-1'>[nō 'kap]</h3>
       <p className='paragraph'>Know Cap is a play on the expression no cap, meaning "no lie" or "for real". <br></br>Here at Know Cap we are about the real deal facts about makeup, especially in a world where authenticity should matter.<br></br>Search your favorite brands for information on their products or head over to The Beat to see them in action from your fiends, followers and influencers and get the facts.<br></br></p>

@@ -8,11 +8,16 @@ import Profile from './views/Profile/Profile.tsx';
 import TheBeat from './views/TheBeat/TheBeat.tsx';
 import { Route, Routes } from 'react-router-dom';
 import CreatePost from './views/CreatePost/CreatePost.tsx';
+import Nav from './componets/Nav/Nav.tsx';
 
 
 const App = () => {
+
+
+
   return (
     <>
+    <Nav/>
       <Routes>
         <Route path='/' element={<Meaning />} />
         <Route path='/search' element={<ProductSearch />} />

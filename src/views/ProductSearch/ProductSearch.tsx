@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './ProductSearch.css';
-import Nav from '../../componets/Nav/Nav';
+// import { doc, setDoc } from 'firebase/firestore'
 
 
 interface Makeup {
@@ -16,7 +16,7 @@ const ProductSearch = () => {
   const [products, setProducts] = useState<Makeup[]>([]);
   const [searchProducts, setSearchProducts] = useState<string>('');
   // const [showMore, setShowMore] = useState(false);
- 
+
 
   useEffect(() => {
     if (searchProducts) {
@@ -43,14 +43,13 @@ const ProductSearch = () => {
     }
   }
 
- 
+
   // Read more drop down button
   // const handleClick = () => { 
   // }
 
   return (
     <>
-      <Nav />
       <h1 className="search-header">Search your new favorite products!</h1>
       {/* search input */}
       <form className="search-form">
@@ -249,7 +248,7 @@ const ProductSearch = () => {
             <h3 className='category'>{item.category}</h3>
             <h4 className='description'>{item.description}
             </h4>
-           {/* <button onClick={handleClick} id="btn">Read more</button> */}
+            {/* <button className='favList'onClick={addToList} id="btn">Add to List</button> */}
           </div>
         ))}
       </div>

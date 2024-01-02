@@ -1,86 +1,62 @@
-import { FormEvent, useState } from 'react';
-import Nav from '../../componets/Nav/Nav';
-import './CreatePost.css'
-
-
-interface IPost {
-  photoUrl: string,
-  product: string,
-  displayName: string,
-  caption: string,
-};
+import { useState } from 'react';
+import './CreatePost.css';
+import { addDoc, collection } from 'firebase/firestore';
+import { db, auth } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 
 
 const CreatePost = () => {
-  const [post, setPost] = useState<IPost>({
-    photoUrl: '',
-    product: '',
-    displayName: '',
-    caption: ''
+  const [post, setPost] = useState('');
+  const [products, setProducts] = useState('');
+  const [postText, setPostText] = useState('');
 
-  })
+  const postRef = collection(db, 'posts')
+  let navigate = useNavigate();
 
-  //     const handleSubmit = (event: FormEvent) => {
-  //     event.preventDefault();
-  //     createPost();
-  //   }
-
-
-  const handleChange = () => {
-
-  }
-
-  const uploadImage = () => {
-
+  const createPost = async () => {
+    await addDoc(postRef, {
+      post, 
+      products, 
+      postText, 
+      author: {name: auth.currentUser?.displayName, id: auth.currentUser?.uid} 
+    });
+    navigate('/beat')
   }
 
   return (
     <>
-      <Nav />
+    <div className='main'>
+      <div className='form-container'>
+        <h1 className="post-header">Create New Post</h1>
+        {/* Title */}
+        <div className='input-info'>
+          <label>Post Name</label>
+          <input type="text" placeholder='Name of Post' onChange={(event) => {
+            setPost(event.target.value)
+          }} />
+        </div>
 
-      <h1 className="post-header">Create New Post</h1>
-      <form className="w-25 mx-auto" >
-        <div className="mb-3">
-          <label htmlFor="title" className="form-label">
-            Product
-          </label>
-          <input
-            onChange={(event) => { setPost({ ...post, product: event.target.value }) }}
-            type="text"
-            className="form-control"
-            id="title"
-          />
+        {/* Products used */}
+        <div className='input-info'>
+          <label>Products Used</label>
+          <input type="text" placeholder='Favorite Products Used' onChange={(event) => {
+            setProducts(event.target.value)
+          }}/>
         </div>
-        <div className="mb-3">
-          <label htmlFor="caption" className="form-label">
-            Caption
-          </label>
-          <input
-            onChange={(event) => { setPost({ ...post, caption: event.target.value }) }}
-            type="text"
-            className="form-control"
-            id="caption"
-          />
+
+        {/* Caption */}
+        <div className='input-info'>
+          <label>Caption</label>
+          <textarea placeholder='The Deets' onChange={(event) => {
+            setPostText(event.target.value)
+          }}></textarea>
         </div>
-        {/* <div className="mb-3">
-          <label htmlFor="img-url" className="form-label">
-            Photo URL
-          </label>
-          <input
-            onChange={(event) => {setPost({...post, photoUrl: event.target.value})}}
-            type="text"
-            className="form-control"
-            id="img-url"
-          />
-        </div> */}
-        <div>
-          <input type='file' onChange={handleChange} className='upload-btn' />
-        </div>
-        <button type="submit" className="create-post-btn" onClick={uploadImage}>
-          Create Post
-        </button>
-      </form>
+        <button className='post-btn' onClick={createPost}>Create Post</button>
+      </div>
+      </div>
     </>
   );
 };
 export default CreatePost
+
+
