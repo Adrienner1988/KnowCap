@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './ProductSearch.css';
-// import { doc, setDoc } from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
+import { auth, db } from '../../firebase';
 
 
 interface Makeup {
@@ -43,6 +44,22 @@ const ProductSearch = () => {
     }
   }
 
+  const addToList = async (selectedProduct: Makeup) => {
+    if (auth.currentUser) {
+      const productData = {
+        brand: selectedProduct.brand,
+        image: selectedProduct.image,
+        item_name: selectedProduct.item_name,
+        category: selectedProduct.category,
+        description: selectedProduct.description,
+      };
+  
+      await setDoc(doc(db, 'users', auth.currentUser.uid, 'FavList', selectedProduct.brand), productData);
+  
+      alert(`${selectedProduct.item_name} has been added to your Favorites List.`);
+    }
+  }
+
 
   // Read more drop down button
   // const handleClick = () => { 
@@ -66,175 +83,175 @@ const ProductSearch = () => {
       <h2 className='brands'>Brands list</h2>
       <div className="tag_list">
         <div className="tag">
-          <h4>almay</h4>
+          <h6>almay</h6>
         </div>
         <div className="tag">
-          <h4>alva</h4>
+          <h6>alva</h6>
         </div>
         <div className="tag">
-          <h4>anna sui</h4>
+          <h6>anna sui</h6>
         </div>
         <div className="tag">
-          <h4>annabelle</h4>
+          <h6>annabelle</h6>
         </div>
         <div className="tag">
-          <h4>benefit</h4>
+          <h6>benefit</h6>
         </div>
         <div className="tag">
-          <h4>boosh</h4>
+          <h6>boosh</h6>
         </div>
         <div className="tag">
-          <h4>burt's bees</h4>
+          <h6>burt's bees</h6>
         </div>
         <div className="tag">
-          <h4>butter london</h4>
+          <h6>butter london</h6>
         </div>
         <div className="tag">
-          <h4>c'est moi</h4>
+          <h6>c'est moi</h6>
         </div>
         <div className="tag">
-          <h4>cargo cosmetics</h4>
+          <h6>cargo cosmetics</h6>
         </div>
         <div className="tag">
-          <h4>china glaze</h4>
+          <h6>china glaze</h6>
         </div>
         <div className="tag">
-          <h4>clinique</h4>
+          <h6>clinique</h6>
         </div>
         <div className="tag">
-          <h4>coastal classic creation</h4>
+          <h6>coastal classic creation</h6>
         </div>
         <div className="tag">
-          <h4>colourpop</h4>
+          <h6>colourpop</h6>
         </div>
         <div className="tag">
-          <h4>covergirl</h4>
+          <h6>covergirl</h6>
         </div>
         <div className="tag">
-          <h4>dalish</h4>
+          <h6>dalish</h6>
         </div>
         <div className="tag">
-          <h4>deciem</h4>
+          <h6>deciem</h6>
         </div>
         <div className="tag">
-          <h4>dior</h4>
+          <h6>dior</h6>
         </div>
         <div className="tag">
-          <h4>dr. hauschka</h4>
+          <h6>dr. hauschka</h6>
         </div>
         <div className="tag">
-          <h4>e.l.f.</h4>
+          <h6>e.l.f.</h6>
         </div>
         <div className="tag">
-          <h4>essie</h4>
+          <h6>essie</h6>
         </div>
         <div className="tag">
-          <h4>fenty</h4>
+          <h6>fenty</h6>
         </div>
         <div className="tag">
-          <h4>glossier</h4>
+          <h6>glossier</h6>
         </div>
         <div className="tag">
-          <h4>green people</h4>
+          <h6>green people</h6>
         </div>
         <div className="tag">
-          <h4>iman</h4>
+          <h6>iman</h6>
         </div>
         <div className="tag">
-          <h4>l'oreal</h4>
+          <h6>l'oreal</h6>
         </div>
         <div className="tag">
-          <h4>lotus cosmetics usa</h4>
+          <h6>lotus cosmetics usa</h6>
         </div>
         <div className="tag">
-          <h4>maia's mineral galaxy</h4>
+          <h6>maia's mineral galaxy</h6>
         </div>
         <div className="tag">
-          <h4>marcelle</h4>
+          <h6>marcelle</h6>
         </div>
         <div className="tag">
-          <h4>marienatie</h4>
+          <h6>marienatie</h6>
         </div>
         <div className="tag">
-          <h4>maybelline</h4>
+          <h6>maybelline</h6>
         </div>
         <div className="tag">
-          <h4>milani</h4>
+          <h6>milani</h6>
         </div>
         <div className="tag">
-          <h4>mineral fusion</h4>
+          <h6>mineral fusion</h6>
         </div>
         <div className="tag">
-          <h4>misa</h4>
+          <h6>misa</h6>
         </div>
         <div className="tag">
-          <h4>mistura</h4>
+          <h6>mistura</h6>
         </div>
         <div className="tag">
-          <h4>moov</h4>
+          <h6>moov</h6>
         </div>
         <div className="tag">
-          <h4>nudus</h4>
+          <h6>nudus</h6>
         </div>
         <div className="tag">
-          <h4>nyx</h4>
+          <h6>nyx</h6>
         </div>
         <div className="tag">
-          <h4>orly</h4>
+          <h6>orly</h6>
         </div>
         <div className="tag">
-          <h4>pacifica</h4>
+          <h6>pacifica</h6>
         </div>
         <div className="tag">
-          <h4>penny lane organics</h4>
+          <h6>penny lane organics</h6>
         </div>
         <div className="tag">
-          <h4>physicians formula</h4>
+          <h6>physicians formula</h6>
         </div>
         <div className="tag">
-          <h4>piggy paint</h4>
+          <h6>piggy paint</h6>
         </div>
         <div className="tag">
-          <h4>pure anada</h4>
+          <h6>pure anada</h6>
         </div>
         <div className="tag">
-          <h4>rejuva minerals</h4>
+          <h6>rejuva minerals</h6>
         </div>
         <div className="tag">
-          <h4>revlon</h4>
+          <h6>revlon</h6>
         </div>
         <div className="tag">
-          <h4>sally b's skin yummies</h4>
+          <h6>sally b's skin yummies</h6>
         </div>
         <div className="tag">
-          <h4>salon perfect</h4>
+          <h6>salon perfect</h6>
         </div>
         <div className="tag">
-          <h4>sante</h4>
+          <h6>sante</h6>
         </div>
         <div className="tag">
-          <h4>sinful colours</h4>
+          <h6>sinful colours</h6>
         </div>
         <div className="tag">
-          <h4>smashbox</h4>
+          <h6>smashbox</h6>
         </div>
         <div className="tag">
-          <h4>stila</h4>
+          <h6>stila</h6>
         </div>
         <div className="tag">
-          <h4>suncoat</h4>
+          <h6>suncoat</h6>
         </div>
         <div className="tag">
-          <h4>w3llpeople</h4>
+          <h6>w3llpeople</h6>
         </div>
         <div className="tag">
-          <h4>wet n wild</h4>
+          <h6>wet n wild</h6>
         </div>
         <div className="tag">
-          <h4>zorah</h4>
+          <h6>zorah</h6>
         </div>
         <div className="tag">
-          <h4>zorah biocosmetiques</h4>
+          <h6>zorah biocosmetiques</h6>
         </div>
       </div>
 
@@ -246,9 +263,8 @@ const ProductSearch = () => {
             <img className='brand-image' src={item.image} />
             <h3 className='product-name'>{item.item_name}</h3>
             <h3 className='category'>{item.category}</h3>
-            <h4 className='description'>{item.description}
-            </h4>
-            {/* <button className='favList'onClick={addToList} id="btn">Add to List</button> */}
+            <h4 className='description'>{item.description}</h4>
+            <button className='favList' onClick={() => addToList(products[0])} id="btn">Add to List</button>
           </div>
         ))}
       </div>

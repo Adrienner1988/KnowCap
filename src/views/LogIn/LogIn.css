@@ -1,19 +1,118 @@
-.login-form {
-    text-align: center;
-    margin-bottom: 15px;
+#leftHalf {
+    background: url('https://images.pexels.com/photos/2661256/pexels-photo-2661256.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-size: 550px 700px;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    left: 0px;
+}
+
+#rightHalf {
+    width: 50%;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+}
+
+.login {
+    color: #f8e5c5;
+    font-weight: 500;
 }
 
 .login-label {
     display: flex;
-    justify-content: center;
+    justify-content: start;
 }
 
-.login-input {
+.img-logo-login {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Google button */
+#googleBtn {
+    margin-top: 10px;
+    padding: 6px;
+    display: inline-block;
+    background: white;
+    color: #444;
+    width: 190px;
+    border-radius: 10px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+  #googleBtn:hover {
+    cursor: pointer;
+    background-color: #8e8785;
+    color: #fff;
+    transition: .3s;
+  }
+
+  /* login form */
+.login-email {
+    margin-top: 15px;
     margin-bottom: 15px;
+    padding: 6px;
+    padding-left: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.Google-btn {
-    font-size: medium;
-    border: 1px solid green;
+.login-password {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+/* log in button */
+.login-btn {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #79493d;
+    background-color: #f8e5c5;
+    padding: 5px 10px;
+    border: solid #8e8785 2px;
+    box-shadow: none;
+    border-radius: 50px;
+    transition: 873ms;
+    transform: translateY(0);
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.login-btn:hover {
+    transition: 873ms;
+    padding: 8px 20px;
+    transform: translateY(-0px);
+    background-color: #8e8785;
+    color: #f8e5c5;
+    border: none;
+    margin-bottom: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* sign up message and message link*/
+.signUp-msg {
+    margin-top: 15px;
+}
+
+a {
+    padding-top: 10px;
+    float: left;
+    clear: left;
+}
+
+a:hover {
+    color: #d8cfdc;
+  }

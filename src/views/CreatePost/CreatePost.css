@@ -1,6 +1,6 @@
 .post-header {
     text-align: center;
-    color: #fff;
+    color: #d8cfdc;
 }
 
 .main {
@@ -12,43 +12,48 @@
 .form-container {
     background-color: #a2745c;
     width: 500px;
-    padding: 20px;
+    padding: 40px;
     margin: 20px;
-    border-radius: 12px;
-    color: #fff;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    border: 5px solid #fff;
+    border: 5px solid #d8cfdc;
     place-items: center;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.form-container .input-info {
+.form-container  .input-info{
     margin-top: 15px;
     display: flex;
     flex-direction: column;
 }
 
-.input-info {
-   
-}
-
-label {
-    color: #fff;
-    padding: 10px;
-    font-size: 25px;
+.newPost{
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 15px;
 }
 
 .post-btn {
-    padding: 5px;
-    margin-top: 10px;
+    padding: 5px 10px;
+    margin-top: 15px;
     border-radius: 10px;
-    background-color: #bb8565;
-    color: #f8e5c5;
+    background-color: #8e8785;
+    color: #d8cfdc;
+    border: 2px solid #d8cfdc;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: 873ms;
+    transform: translateY(0);
 }
 
 .post-btn:hover {
     background-color: #f8e5c5;
     color: #1f1b1d;
     transition: .3s;
+    border: 2px solid #d8cfdc;
+    transition: 873ms;
+    padding: 8px 20px;
+    transform: translateY(-0px);
 }

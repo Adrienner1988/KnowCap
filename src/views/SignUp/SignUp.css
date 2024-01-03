@@ -1,0 +1,97 @@
+#rightHalfSU {
+    background: url('https://images.pexels.com/photos/6785003/pexels-photo-6785003.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60%;
+    height: 650px;
+    position: absolute;
+    right: 0px;
+}
+
+#leftHalfSU {
+    width: 35%;
+    position: absolute;
+    left: 0px;
+    height: 100%;
+}
+
+.signup-header {
+    color:#f8e5c5;
+}
+
+.img-logo-signup {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+    padding-bottom: 25px;
+    position: absolute;
+    left: 30px;
+}
+
+.signin-input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+    display: inline-block;
+    justify-content: start;
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+  }
+  
+  hr {
+    border: 1px solid #d8cfdc;
+    margin-bottom: 10px;
+  }
+  
+  /* account button */
+  .account {
+    color: #f8e5c5;
+    padding: 12px 18px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  .account:hover {
+    color: #d8cfdc;
+  }
+
+  .signupbtn {
+    background-color: #d8cfdc;
+    color: #bb8565;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  button:hover {
+    opacity:1;
+  }
+
+  /* Float cancel and signup buttons and add an equal width */
+  .account, .signupbtn {
+    float: left;
+    width: 50%;
+  }
+
+  /* Change styles for cancel button and signup button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .account, .signupbtn {
+      width: 100%;
+    }
+  }

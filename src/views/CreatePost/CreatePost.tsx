@@ -20,6 +20,7 @@ const CreatePost = () => {
       postText, 
       author: {name: auth.currentUser?.displayName, id: auth.currentUser?.uid} 
     });
+    alert(`Your post has been created!`);
     navigate('/beat')
   }
 
@@ -30,24 +31,21 @@ const CreatePost = () => {
         <h1 className="post-header">Create New Post</h1>
         {/* Title */}
         <div className='input-info'>
-          <label>Post Name</label>
-          <input type="text" placeholder='Name of Post' onChange={(event) => {
+          <input type="text" placeholder='Name of Post' className='newPost' onChange={(event) => {
             setPost(event.target.value)
           }} />
         </div>
 
         {/* Products used */}
         <div className='input-info'>
-          <label>Products Used</label>
-          <input type="text" placeholder='Favorite Products Used' onChange={(event) => {
+          <input type="text" placeholder='Favorite Products Used' className='newPost' onChange={(event) => {
             setProducts(event.target.value)
           }}/>
         </div>
 
         {/* Caption */}
         <div className='input-info'>
-          <label>Caption</label>
-          <textarea placeholder='The Deets' onChange={(event) => {
+          <textarea placeholder='Give us all the details, Know Cap!' className='newPost' onChange={(event) => {
             setPostText(event.target.value)
           }}></textarea>
         </div>

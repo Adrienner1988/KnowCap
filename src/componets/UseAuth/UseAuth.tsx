@@ -1,5 +1,6 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
@@ -9,47 +10,51 @@ interface IUser {
 };
 
 const useAuth = () => {
-const [user, setUser] = useState<IUser>({
-    uid: '',
-    email: ''
-})
 
-// Tracking current user
-useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
-            if (typeof user.email === 'string') {
-                setUser({
+    let navigate = useNavigate();
+
+    const [user, setUser] = useState<IUser>({
+        uid: '',
+        email: ''
+    });
+
+    // Tracking current user
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                if (typeof user.email === 'string') {
+                  setUser({
                     uid: user.uid,
-                    email: user.email
+                    email: user.email,
+                  });
+                } else {
+                  console.error('Invalid email or password');
+                }
+              } else {
+                setUser({
+                  uid: '',
+                  email: '',
                 });
-            } else {
-                console.error('Invalid email type');
-            }
-        } else {
+                navigate('/login');
+              }
+            });
+        
+            return () => unsubscribe();
+          }, [navigate]);
+        
+    
+    // Sign out user
+    const handleSignOut = () => {
+        signOut(auth).then(() => {
             setUser({
                 uid: '',
                 email: ''
             })
-        }
-    });
-
-    return () => unsubscribe();
-}, []);
-
-
-// Sign out user
-const handleSignOut = () => {
-    signOut(auth).then(() => {
-        setUser({
-            uid: '',
-            email: ''
-        })
-    }).catch((error) => {
-        alert(`${error}`);
-    });
-}
-return { user, handleSignOut }
+        }).catch((error) => {
+            alert(`${error}`);
+        });
+    }
+    return { user, handleSignOut }   
 }
 
 export default useAuth

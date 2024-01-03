@@ -4,14 +4,16 @@ import { MdOutlineAddAPhoto } from "react-icons/md";
 import { useState } from 'react'; 
 import UseAuth from '../../componets/UseAuth/UseAuth';
 
+
 const Nav = () => {
   const {user, handleSignOut} = UseAuth();
 
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleClick = () =>{
     setMenuOpen(!menuOpen)
   }
+
 
   return (
     <>
@@ -34,9 +36,18 @@ const Nav = () => {
 
       <li><NavLink to={'/profile'}>Profile</NavLink></li>
 
+{user.email ? (
+  <>
       <li className='user-name'>{user.email}</li>
-
       <li><NavLink to={'/login'} onClick={handleSignOut}>Log Out</NavLink></li>
+      </> )
+   : (
+<>
+      <li><NavLink to={'/login'}>Login</NavLink></li>
+
+      <li><NavLink to={'/signup'}>Sign Up</NavLink></li>
+      </>
+   )}
     </ul>
     </nav>
     </>
