@@ -50,7 +50,7 @@ const CreatePost = () => {
           <h1 className="post-header">Create New Post</h1>
           {/* Title */}
           <div className='input-info'>
-            <input type="text" placeholder='Name of Post' className='newPost' onChange={(event) => {
+            <input type="text" placeholder='Post Name' className='newPost'  onChange={(event) => {
               setPost(event.target.value)
             }} />
           </div>
@@ -64,13 +64,14 @@ const CreatePost = () => {
 
           {/* Caption */}
           <div className='input-info'>
-            <textarea placeholder='Give us all the details, Know Cap!' className='newPost' onChange={(event) => {
+            <textarea placeholder='Give us all the details, Know Cap!' className='details' onChange={(event) => {
               setPostText(event.target.value)
             }}></textarea>
           </div>
+
           {/* Image  */}
           <div className='input-info'>
-            <input type='file' onChange={(event) => { 
+            <input type='file'className='file-input' onChange={(event) => { 
               setImageUpload(event.target.files[0]);
             }} />
           </div>

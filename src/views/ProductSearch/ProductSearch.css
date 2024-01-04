@@ -14,7 +14,7 @@
 
 .paragraph {
     text-align: center;
-    font-size:x-large;
+    font-size: x-large;
     color: #f8e5c5;
 }
 
@@ -37,7 +37,7 @@
 /* brands list */
 .brands {
     margin-left: 30px;
-    color: #f7e4c3 ;
+    color: #f7e4c3;
 }
 
 .tag_list {
@@ -60,8 +60,8 @@
 /* Card */
 .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    gap: 10px; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
     margin: 15px;
 }
 
@@ -70,10 +70,16 @@
     margin: 10px;
     padding: 10px;
     background-color: #dab59c;
+    border-radius: 10px;
 }
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.brand-name {
+    color: #784b3d;
+    text-transform: capitalize
 }
 
 .brand-image {
@@ -81,35 +87,51 @@
     width: 100%;
     border-radius: 10px;
     object-fit: scale-down;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-
-.brand-name {
-    color: #000;
-    text-transform: uppercase;
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .product-name {
-    color: #000;
+    color: #784b3d;
     padding-top: 10px;
 }
 
-.readMore{
+.category {
+    color: #201b1d;
+    text-transform: capitalize;
+    margin-top: 3px;
+}
+
+.product-link {
+    color: #794b3d;
+    margin-bottom: 10px;
+}
+
+.product-link:hover {
+    color: #f7e4c3;
+}
+
+/* .readMore {
     padding: 3px;
     border-radius: 10px;
-}
+} */
+
 .favList {
     border-radius: 10px;
     background-color: #d3cbd9;
     color: #794b3d;
     border: 2px solid #794b3d;
+    padding: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 12px;
 }
 
 .favList:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     color: #dab59c;
     background-color: #794b3d;
     border: 2px solid #dab59c;
     transition: .3s;
+    cursor: pointer;
 }
-

@@ -1,6 +1,6 @@
 .post-header {
     text-align: center;
-    color: #d8cfdc;
+    color: #f7e5c3;
 }
 
 .main {
@@ -10,7 +10,7 @@
 }
 
 .form-container {
-    background-color: #a2745c;
+    background-color: #dab59c;
     width: 500px;
     padding: 40px;
     margin: 20px;
@@ -23,23 +23,36 @@
 }
 
 .form-container  .input-info{
-    margin-top: 15px;
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .newPost{
     border-radius: 10px;
     padding: 5px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
+
+.details{
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    width: 230px;
+}
+
+input[type="file"] {
+    margin-left: 35%;
+    margin-top: 10px;
+  }
 
 .post-btn {
     padding: 5px 10px;
     margin-top: 15px;
     border-radius: 10px;
     background-color: #8e8785;
-    color: #d8cfdc;
+    color: #f7e5c3;
     border: 2px solid #d8cfdc;
     text-transform: uppercase;
     cursor: pointer;

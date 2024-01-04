@@ -2,7 +2,7 @@ import './Nav.css'
 import { Link, NavLink } from 'react-router-dom';
 import { MdOutlineAddAPhoto } from "react-icons/md"; 
 import { useState } from 'react'; 
-import UseAuth from '../../componets/UseAuth/UseAuth';
+import UseAuth from '../UseAuth/UseAuth';
 
 
 const Nav = () => {

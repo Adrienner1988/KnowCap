@@ -122,7 +122,7 @@ const TheBeat = () => {
         <div className='edit-form'>
           {editPost && (
             <form onSubmit={handleEditSubmit}>
-              <textarea
+              <textarea className='edit-textarea'
                 value={editPost}
                 onChange={(event) => setEditPost(event.target.value)}
               />

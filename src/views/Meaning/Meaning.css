@@ -1,6 +1,6 @@
 body {
     background-color: #bb8565;
-  }
+}
 
 .def-header {
     text-align: center;
@@ -15,9 +15,17 @@ body {
     color: #fff;
 }
 
+.meaning-logo {
+    height: 250px;
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .paragraph {
     text-align: center;
-    font-size:x-large;
+    font-size: x-large;
     color: #f8e5c5;
 }
 
@@ -29,7 +37,7 @@ body {
 /* brand spotlight section */
 .spotlight-info {
     color: #fff;
-  }
+}
 
 .spotlight {
     margin: 80px auto;
@@ -39,7 +47,7 @@ body {
 .spotlight-brand {
     font-size: 42px;
     color: #fff;
-  }
+}
 
 .brand-spotlight-image {
     width: 300px;
@@ -63,19 +71,20 @@ body {
 /* Makeup inspo section */
 .inspo-header {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
     color: #f8e5c5;
 }
 
 .inspo-reel {
     max-width: 1000px;
-    margin: auto;  
-    
+    margin: auto;
 }
 
 .reel-image {
     height: 400px;
     padding-left: 25px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .looksQ {
@@ -84,6 +93,7 @@ body {
     padding: 10px;
     margin-top: 10px;
     color: #f8e5c5;
+    border-radius: 10px;
 }
 
 .bottom-bar {
