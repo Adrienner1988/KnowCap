@@ -67,7 +67,7 @@ const LogIn = () => {
             placeholder='Enter Email'
             id='email'
             name='email'
-            autoComplete='current-email' />
+            autoComplete='current-email' required />
 
           <input className='login-password' onChange={(event) => {
             setUser({ ...user, password: event.target.value })
@@ -76,7 +76,7 @@ const LogIn = () => {
             name="password"
             type="password"
             id="password"
-            autoComplete="current-password" />
+            autoComplete="current-password" required/>
           <button className='login-btn'>login</button>
 
           <div className='login-form'>

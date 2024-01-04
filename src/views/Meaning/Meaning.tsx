@@ -16,21 +16,10 @@ const Meaning = () => {
 
       <hr></hr>
 
-      {/* brand spotlight */}
-      <div className='spotlight'>
-        <img className='brand-spotlight-image' src="src\Images\malani.jpg" alt="malani-lipstick" />
-
-        <h3 className='spotlight-brand'>Brand Spotlight</h3>
-        <h2 className='brandName'>Milani</h2>
-
-        <p className='spotlight-info'>Start a lip color love affair with bold Milani lipsticks. Their collection features liquid lipsticks, lip cremes, lip plumpers and traditional tube lipsticks that can deliver serious pigmentation and supercharged staying power. Collect them all, because the hype is right -- Milani lipsticks get great word of mouth.</p><br></br>
-      </div>
-      <hr></hr>
-
       {/* inspo reel */}
       <h1 className='inspo-header'>MAKEUP INSPIRATION</h1>
       <div className='inspo-reel'>
-        <img src='src\Images\blackBeauty.jpg' className='reel-image' />
+        <img src='src\Images\rainbow.jpg' className='reel-image' />
         <img src='src\Images\orangeEyeShadow.jpg' className='reel-image' />
         <img src='src/Images/prettyInPink.jpg' className='reel-image' />
 
@@ -45,6 +34,16 @@ const Meaning = () => {
         </div>
       </div>
 
+      <hr></hr>
+      {/* brand spotlight */}
+      <div className='spotlight'>
+        <img className='brand-spotlight-image' src="src\Images\malani.jpg" alt="malani-lipstick" />
+
+        <h3 className='spotlight-brand'>Brand Spotlight</h3>
+        <h2 className='brandName'>Milani</h2>
+
+        <h4 className='spotlight-info'>Start a lip color love affair with bold Milani lipsticks. Their collection features liquid lipsticks, lip cremes, lip plumpers and traditional tube lipsticks that can deliver serious pigmentation and supercharged staying power. Collect them all, because the hype is right -- Milani lipsticks get great word of mouth.</h4><br></br>
+      </div>
     </>
   )
 }

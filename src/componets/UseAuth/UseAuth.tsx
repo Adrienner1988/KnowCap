@@ -20,27 +20,26 @@ const useAuth = () => {
 
     // Tracking current user
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                if (typeof user.email === 'string') {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+          if (user) {
+              if (typeof user.email === 'string') {
                   setUser({
-                    uid: user.uid,
-                    email: user.email,
+                      uid: user.uid,
+                      email: user.email
                   });
-                } else {
-                  console.error('Invalid email or password');
-                }
               } else {
-                setUser({
-                  uid: '',
-                  email: '',
-                });
-                navigate('/login');
+                  alert('Invalid email or password');
               }
-            });
-        
-            return () => unsubscribe();
-          }, [navigate]);
+          } else {
+              setUser({
+                  uid: '',
+                  email: ''
+              })
+          }
+      });
+  
+      return () => unsubscribe();
+  }, []);
         
     
     // Sign out user

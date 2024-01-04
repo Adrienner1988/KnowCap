@@ -39,8 +39,8 @@ const TheBeat = () => {
           products: doc.data().products,
           id: doc.id,
           author: {
-            name: doc.data().author.name,
-            id: doc.data().author.id
+            name: doc.data().author?.name || '',
+            id: doc.data().author?.id || '',
           }
         }));
         setPostList(mappedData);

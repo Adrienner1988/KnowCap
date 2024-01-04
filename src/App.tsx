@@ -9,11 +9,9 @@ import TheBeat from './views/TheBeat/TheBeat.tsx';
 import { Route, Routes } from 'react-router-dom';
 import CreatePost from './views/CreatePost/CreatePost.tsx';
 import Nav from './componets/Nav/components.tsx';
-import useAuth from './componets/UseAuth/UseAuth.tsx';
 
 
 const App = () => {
-  useAuth();
 
   return (
     <>
@@ -21,13 +19,12 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Meaning />} />
         <Route path='/search' element={<ProductSearch />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/login' element={<LogIn />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/beat' element={<TheBeat />} />
         <Route path='/post' element={<CreatePost />} />
-      </Routes>
-      
+        <Route path='/beat' element={<TheBeat />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/login' element={<LogIn />} />
+        <Route path='/signup' element={<SignUp />} />   
+      </Routes>  
     </>
   );
 };
