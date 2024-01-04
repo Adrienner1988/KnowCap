@@ -2,14 +2,14 @@
     background: url('https://images.pexels.com/photos/2661256/pexels-photo-2661256.jpeg?auto=compress&cs=tinysrgb&w=600');
     background-size: 550px 700px;
     background-repeat: no-repeat;
-    width: 50%;
+    width: 45%;
     height: 100vh;
     position: absolute;
     left: 0px;
 }
 
 #rightHalf {
-    width: 50%;
+    width: 55%;
     position: absolute;
     right: 0px;
     height: 100%;

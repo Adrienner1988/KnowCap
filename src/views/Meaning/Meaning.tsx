@@ -9,8 +9,10 @@ const Meaning = () => {
     <>
       <h2 className='def-header'>Know Cap</h2>
       <h3 className='def-header-1'>[nō 'kap]</h3>
-      <p className='paragraph'>Know Cap is a play on the expression no cap, meaning "no lie" or "for real". <br></br>Here at Know Cap we are about the real deal facts about makeup, especially in a world where authenticity should matter.<br></br>Search your favorite brands for information on their products or head over to The Beat to see them in action from your fiends, followers and influencers and get the facts.<br></br></p>
+      <p className='paragraph'>Know Cap is a play on the expression no cap, meaning "no lie" or "for real". <br></br>Here at Know Cap we are about the facts about makeup, especially in a world where authenticity should matter.<br></br>Search your favorite brands for information on their products or head over to The Beat to see them in action from your fiends and influencers and get the facts.</p>
       <h4 className='know-cap'><em>Know Cap, Know Beauty!</em></h4>
+
+      <hr></hr>
 
       {/* brand spotlight */}
       <div className='spotlight'>

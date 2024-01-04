@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './ProductSearch.css';
 import { doc, setDoc } from 'firebase/firestore'
 import { auth, db } from '../../firebase';
+import { TbHeartPlus } from "react-icons/tb";
 
 
 interface Makeup {
@@ -16,7 +17,7 @@ interface Makeup {
 const ProductSearch = () => {
   const [products, setProducts] = useState<Makeup[]>([]);
   const [searchProducts, setSearchProducts] = useState<string>('');
-  // const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState<string[]>([]);
 
 
   useEffect(() => {
@@ -52,22 +53,30 @@ const ProductSearch = () => {
         item_name: selectedProduct.item_name,
         category: selectedProduct.category,
         description: selectedProduct.description,
-      };
-  
+      }
+
       await setDoc(doc(db, 'users', auth.currentUser.uid, 'FavList', selectedProduct.brand), productData);
-  
-      alert(`${selectedProduct.item_name} has been added to your Favorites List.`);
+
+      alert(`${selectedProduct.item_name} has been added to your Favorites List.`)
     }
   }
 
-
-  // Read more drop down button
-  // const handleClick = () => { 
-  // }
+  const toggleReadMore = (itemId: string) => {
+    setShowMore((prevExpandedItems) => {
+      if (prevExpandedItems.includes(itemId)) {
+        return prevExpandedItems.filter((id) => id !== itemId);
+      } else {
+        return [...prevExpandedItems, itemId];
+      }
+    });
+  }
 
   return (
     <>
+      <img className='search-logo' src='src\Images\KCLightBrwn.png' alt="logo" />
       <h1 className="search-header">Search your new favorite products!</h1>
+      <p className='paragraph'>Search your favorite brands for information on their products or head over to The Beat to see them in action from your fiends and influencers and get the facts.</p>
+
       {/* search input */}
       <form className="search-form">
         <input
@@ -79,8 +88,9 @@ const ProductSearch = () => {
           value={searchProducts}
           onChange={(event) => setSearchProducts(event.target.value)} />
       </form>
+
       {/* brands currently offered */}
-      <h2 className='brands'>Brands list</h2>
+      <h2 className='brands'>Current Brand List</h2>
       <div className="tag_list">
         <div className="tag">
           <h6>almay</h6>
@@ -259,12 +269,16 @@ const ProductSearch = () => {
       <div className='card-container'>
         {products && products.map((item, index) => (
           <div key={index} className='card'>
-            <h1 className='brand-name'><b>{item.brand}</b></h1>
+            <h2 className='brand-name'><b>{item.brand}</b></h2>
             <img className='brand-image' src={item.image} />
             <h3 className='product-name'>{item.item_name}</h3>
-            <h3 className='category'>{item.category}</h3>
-            <h4 className='description'>{item.description}</h4>
-            <button className='favList' onClick={() => addToList(products[0])} id="btn">Add to List</button>
+            <h4 className='category'>{item.category}</h4>
+            <p className='description'>{item.description}
+              {showMore.includes(item.item_name) ? item.description : `${item.description.slice(0, 200)}...`}
+              <button className='readMore' onClick={() => toggleReadMore(item.item_name)}>
+                {showMore.includes(item.item_name) ? 'Read Less' : 'Read More'}</button></p>
+
+            <button className='favList' onClick={() => addToList(products[0])} id="btn">Add to Favorite List <TbHeartPlus /></button>
           </div>
         ))}
       </div>

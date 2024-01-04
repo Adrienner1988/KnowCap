@@ -4,9 +4,11 @@ import { db } from '../../firebase';
 import { auth } from '../../firebase';
 import './TheBeat.css';
 
+
 interface IBeat {
   id: string;
   post: string;
+  imageUrl: string;
   postText: string;
   products: string;
   author: {
@@ -33,6 +35,7 @@ const TheBeat = () => {
         const mappedData: IBeat[] = data.docs.map((doc) => ({
           post: doc.data().post,
           postText: doc.data().postText,
+          imageUrl: doc.data().imageUrl,
           products: doc.data().products,
           id: doc.id,
           author: {
@@ -40,8 +43,6 @@ const TheBeat = () => {
             id: doc.data().author.id
           }
         }));
-
-        // setting post
         setPostList(mappedData);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -64,7 +65,7 @@ const TheBeat = () => {
     } catch (error) {
       console.error('Error updating post:', error);
     }
-  };
+  }
 
   const fetchPosts = async () => {
     try {
@@ -72,6 +73,7 @@ const TheBeat = () => {
       const mappedData = data.docs.map((doc) => ({
         post: doc.data().post,
         postText: doc.data().postText,
+        imageUrl: doc.data().imageUrl,
         products: doc.data().products,
         id: doc.id,
         author: {
@@ -89,7 +91,7 @@ const TheBeat = () => {
     const postToEdit = postList.find((post) => post.id === postId);
     setEditPost(postToEdit?.postText || '');
     setEditingPostId(postId);
-  };
+  }
 
   const handleEditSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -97,7 +99,7 @@ const TheBeat = () => {
       updatePost(editingPostId, editPost);
       setEditingPostId(null);
     }
-  };
+  }
 
   const deletePost = async (id: string) => {
     const confirmDeletion = window.confirm('Are you sure you want to delete this post?');
@@ -111,9 +113,8 @@ const TheBeat = () => {
 
   return (
     <>
-    <div className='header'>
-      <h1 className='post-header'>The Beat</h1>
-      {/* <img className='sponge-image' src="src\Images\blushLipstick.jpg" alt="makeup sponges" /> */}
+      <div className='header'>
+        <h1 className='post-header'>The Beat</h1>
       </div>
 
       <div className='the-beat'>
@@ -131,33 +132,36 @@ const TheBeat = () => {
           )}
         </div>
 
-        {postList.map((post) => {
-          return <div className='row' key={post.id}>
-            <div className="column">
-              <div className="content">
-                <div><h3>{post.post}</h3></div>
-                <div><p>{post.postText}</p></div>
-                <div><p>Favorite Products Used: {post.products}</p></div>
-                <div><p>Created By: {post.author.name}</p></div>
+        {/* mapped post */}
+        <div className='displayPost'>
+          {postList.map((post) => {
+            return <div className='row' key={post.id}>
+              <div className="column">
+                <div className="content">
+                  <div><h3>{post.post}</h3></div>
+                  <img className='postImage' src={post.imageUrl} />
+                  <div><p className='postText'>{post.postText}</p></div>
+                  <div><p>Favorite Products Used: {post.products}</p></div>
+                  <div><p>Created By: {post.author.name}</p></div>
 
-                {/* update post */}
-                <div className='update-post'>
-                  {post.author.id === auth.currentUser?.uid && (
-                    <button className='update-btn' onClick={() => { handleEditClick(post.id) }}>Update Post</button>)}
-                </div>
+                  {/* update post */}
+                  <div className='update-post'>
+                    {post.author.id === auth.currentUser?.uid && (
+                      <button className='update-btn' onClick={() => { handleEditClick(post.id) }}>Update Post</button>)}
+                  </div>
 
-                {/* delete post */}
-                <div className='delete-post'>
-                  {post.author.id === auth.currentUser?.uid && (
-                    <button className='delete-btn' onClick={() => { deletePost(post.id) }}>Delete Post</button>)}
+                  {/* delete post */}
+                  <div className='delete-post'>
+                    {post.author.id === auth.currentUser?.uid && (
+                      <button className='delete-btn' onClick={() => { deletePost(post.id) }}>Delete Post</button>)}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        })}
+          })}
+        </div>
       </div>
     </>
-
   )
 }
 export default TheBeat
