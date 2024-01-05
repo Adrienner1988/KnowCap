@@ -1,6 +1,6 @@
 #rightHalfSU {
     background: url('https://images.pexels.com/photos/6785003/pexels-photo-6785003.jpeg?auto=compress&cs=tinysrgb&w=600');
-    background-size: cover;
+    background-size: 100% ;
     background-repeat: no-repeat;
     width: 60%;
     height: 650px;
@@ -26,7 +26,6 @@
 }
 
 .container {
-    padding-bottom: 25px;
     position: absolute;
     left: 30px;
 }

@@ -14,7 +14,7 @@ interface IBeat {
   author: {
     name: string;
     id: string;
-  };
+  }
 }
 
 const TheBeat = () => {
@@ -49,7 +49,7 @@ const TheBeat = () => {
       }
     }
     getPosts();
-  }, [])
+  }, []);
 
   // updating of post
   const updatePost = async (id: string, updatedPostText: string) => {

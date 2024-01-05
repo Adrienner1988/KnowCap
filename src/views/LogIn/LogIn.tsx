@@ -32,7 +32,7 @@ const LogIn = () => {
         const errorMessage = error.message;
         alert(`${errorCode}: ${errorMessage}`)
       });
-  };
+  }
 
   // Google sign in
   const signInWithGoogle = async () => {
@@ -42,7 +42,7 @@ const LogIn = () => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }
 
 
   return (
@@ -76,7 +76,7 @@ const LogIn = () => {
             name="password"
             type="password"
             id="password"
-            autoComplete="current-password" required/>
+            autoComplete="current-password" required />
           <button className='login-btn'>login</button>
 
           <div className='login-form'>
@@ -90,6 +90,6 @@ const LogIn = () => {
       </div>
 
     </>
-  );
+  )
 }
 export default LogIn

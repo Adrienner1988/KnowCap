@@ -32,7 +32,7 @@ const SignUp = () => {
         alert(`${errorCode}: ${errorMessage}`)
         // ..
       });
-  };
+  }
 
 
   return (
@@ -72,7 +72,6 @@ const SignUp = () => {
         </form>
       </div>
     </>
-
-  );
+  )
 }
 export default SignUp
