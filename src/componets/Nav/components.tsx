@@ -36,6 +36,8 @@ const Nav = () => {
 
       <li><NavLink to={'/profile'}>Profile</NavLink></li>
 
+      <li><NavLink to={'/form'}>Profile Form</NavLink></li>
+
 {user.email ? (
   <>
       <li className='user-name'>{user.email}</li>

@@ -8,8 +8,6 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [user, setUser] = useState({
-    fName: '',
-    lName: '',
     email: '',
     password: ''
   })
@@ -47,14 +45,6 @@ const SignUp = () => {
             <h1 className='signup-header'>Sign Up</h1>
             <p>Please fill in this form to create an account.</p>
             <hr />
-
-            <input type="text" placeholder="Enter First Name" name="fname" required onChange={(event) => {
-              setUser({ ...user, fName: event.target.value })
-            }} className='signin-input'/>
-
-            <input type="text" placeholder="Enter Last Name" name="lname" required onChange={(event) => {
-              setUser({ ...user, lName: event.target.value })
-            }} className='signin-input'/>
 
             <input type="text" placeholder="Enter Email" name="email" required onChange={(event) => {
               setUser({ ...user, email: event.target.value })

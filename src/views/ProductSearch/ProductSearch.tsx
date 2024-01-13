@@ -78,7 +78,7 @@ const ProductSearch = () => {
     <>
       <img className='search-logo' src='src\Images\KCLightBrwn.png' alt="logo" />
       <h1 className="search-header">Search your new favorite products here!</h1>
-      <p className='paragraph'>Search your favorite brands for information on their products or head over to The Beat to see them in action from your fiends and influencers and get the facts.</p>
+      <p className='paragraph'>Search your favorite brands for information on their products or head over to The Beat to see them in action from your friends and influencers and get the facts.</p>
 
       {/* search input */}
       <form className="search-form">

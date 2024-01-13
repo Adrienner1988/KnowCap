@@ -9,6 +9,7 @@ import TheBeat from './views/TheBeat/TheBeat.tsx';
 import { Route, Routes } from 'react-router-dom';
 import CreatePost from './views/CreatePost/CreatePost.tsx';
 import Nav from './componets/Nav/components.tsx';
+import ProfileForm from './views/Profile/ProfileForm.tsx';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/post' element={<CreatePost />} />
         <Route path='/beat' element={<TheBeat />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/form' element={<ProfileForm />} />
         <Route path='/login' element={<LogIn />} />
         <Route path='/signup' element={<SignUp />} />   
       </Routes>  

@@ -1,0 +1,114 @@
+.profile-header {
+    color: #f7e4c3; 
+    text-align: center;
+    margin-top: 10px;
+}
+
+.header {
+    background-image: url('https://images.pexels.com/photos/7290731/pexels-photo-7290731.jpeg?auto=compress&cs=tinysrgb&w=300');
+	background-position: center; 
+    width: 100%;
+    opacity: .8;
+} */
+
+.header > h1 {
+    color: #f7e4c3; 
+	padding: 50px 30px; 
+}
+
+.profile-posts{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 10px;  
+}
+
+.row {
+    width: 100%;
+    margin: 10px;
+}
+
+.content {
+    background-color: #a2745c;
+    color: #f7e4c3;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    min-height: 100%
+}
+
+.postText {
+    padding-top: 10px;
+}
+
+.postImage {
+    max-height: 50%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit:cover;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.update-btn {
+    padding: 5px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    background-color: #f7e5c3;
+    color: #784b3d;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.update-btn:hover {
+    background-color: #8e8783;
+    color: #201b1d;
+    transition: .3s;
+    border: none;
+}
+
+.delete-btn {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: darkred;
+    color: #dab59c;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.delete-btn:hover {
+    background-color: maroon;
+    color: #f7e5c3;
+    transition: .3s;
+    border: none;
+}
+
+.edit-textarea {
+    border-radius: 10px;
+}
+
+.changes-btn {
+    background-color: green;
+    color: #f7e5c3;
+    transition: .3s;
+    border: none;
+    margin-left: 3px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.changes-btn:hover {
+    background-color: #0a740a;
+}
+
+.cancel-btn {
+    background-color: maroon;
+    color: #f7e5c3;
+    transition: .3s;
+    border: none;
+    margin-left: 3px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.cancel-btn:hover {
+    background-color: darkred;
+}

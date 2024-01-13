@@ -1,8 +1,8 @@
 import './LogIn.css';
 import * as React from 'react';
 import { useState } from 'react';
-import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '../../firebase';
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile} from 'firebase/auth';
+import { auth } from '../../firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 
@@ -12,7 +12,8 @@ const LogIn = () => {
     email: '',
     password: ''
   })
-
+  
+  const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate()
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -37,12 +38,27 @@ const LogIn = () => {
   // Google sign in
   const signInWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+  
+      // Check if the user has a photoURL
+      if (user.photoURL) {
+        console.log("User Photo URL:", user.photoURL);
+      } else {
+        console.log("User does not have a Photo URL");
+      }
+  
+      // Update user profile with additional information (if needed)
+      await updateProfile(user, {
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+      });
+  
       navigate('/');
     } catch (error) {
-      console.error(error);
+      alert("Error signing in with Google");
     }
-  }
+  };
 
 
   return (

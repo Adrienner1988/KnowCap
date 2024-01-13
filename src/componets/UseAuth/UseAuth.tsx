@@ -1,21 +1,22 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
 interface IUser {
-    uid: string,
-    email: string
+    uid: string;
+    email: string;
+    displayName: string;
+    photoURL: string;
 };
 
 const useAuth = () => {
 
-    let navigate = useNavigate();
-
     const [user, setUser] = useState<IUser>({
         uid: '',
-        email: ''
+        email: '',
+        displayName: '',
+        photoURL: '',
     });
 
     // Tracking current user
@@ -25,7 +26,9 @@ const useAuth = () => {
               if (typeof user.email === 'string') {
                   setUser({
                       uid: user.uid,
-                      email: user.email
+                      email: user.email,
+                      displayName: user.displayName,
+                      photoURL: user.photoURL,
                   });
               } else {
                   alert('Invalid email or password');
@@ -33,7 +36,9 @@ const useAuth = () => {
           } else {
               setUser({
                   uid: '',
-                  email: ''
+                  email: '',
+                  displayName: '',
+                  photoURL:'',
               })
           }
       });
@@ -47,7 +52,9 @@ const useAuth = () => {
         signOut(auth).then(() => {
             setUser({
                 uid: '',
-                email: ''
+                email: '',
+                displayName: '',
+                photoURL: ''
             })
         }).catch((error) => {
             alert(`${error}`);
