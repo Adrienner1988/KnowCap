@@ -59,7 +59,7 @@ const TheBeat = () => {
 
         setPostList(mappedData);
       } catch (error) {
-        console.error('Error fetching posts:', error);
+        alert('Error fetching posts');
       }
     }
     getPosts();
@@ -67,6 +67,7 @@ const TheBeat = () => {
 
   // updating of post
   const updatePost = async (id: string, updatedPostText: string) => {
+
     if (!updatedPostText) return;
 
     const postDoc = doc(db, 'posts', id);
@@ -77,7 +78,7 @@ const TheBeat = () => {
       setEditPost('');
       fetchPosts();
     } catch (error) {
-      console.error('Error updating post:', error);
+      alert('Error updating post');
     }
   }
 
@@ -98,7 +99,7 @@ const TheBeat = () => {
       }));
       setPostList(mappedData);
     } catch (error) {
-      console.error('Error fetching posts:', error);
+      alert('Error fetching posts');
     }
   }
 
