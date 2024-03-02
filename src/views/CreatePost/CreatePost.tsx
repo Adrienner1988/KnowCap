@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CreatePost.css';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { db, auth } from '../../firebase';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { storage } from '../../firebase';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
@@ -31,8 +31,6 @@ const CreatePost = () => {
           imageUrl,
           products,
           postText,
-          CreatedAt: serverTimestamp(),
-          author: { name: auth.currentUser?.displayName, id: auth.currentUser?.uid }
         });
         alert(`Your post has been created!`);
         navigate('/beat');
