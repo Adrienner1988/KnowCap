@@ -19,7 +19,7 @@ interface IBeat {
   postText: string;
   products: string;
   author: {
-    id: string;
+    name: string; 
   };
 }
 
@@ -36,7 +36,7 @@ const TheBeat = () => {
       try {
         const data = await getDocs(postRef);
         // logging just the arrays already in the database to shorten the information to parse through
-        // logs the array of post data retrieved from Firestore. Mapping to iterate over each doc, retrieves the data, and adds an additional field id to each object.
+        // logs the array of post data retrieved from Firestore to the console. Mapping to iterate over each doc, retrieves the data, and adds an additional field id to each object.
         console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
 
         // Explicitly define the type for mapped data
@@ -49,7 +49,7 @@ const TheBeat = () => {
           products: doc.data().products,
           id: doc.id,
           author: {
-            id: doc.data().author.id,
+            name: doc.data().author.name, 
           },
         }));
 
@@ -88,7 +88,7 @@ const TheBeat = () => {
         products: doc.data().products,
         id: doc.id,
         author: {
-          id: doc.data().author.id,
+          name: doc.data().author.name, 
         },
       }));
       setPostList(mappedData);
@@ -171,12 +171,12 @@ const TheBeat = () => {
                     <div>
                       <p>Favorite Products Used: {post.products}</p>
 
-                      <p>{post.author.id}</p>
+                      <p>{post.author.name}</p>
                     </div>
 
                     {/* update post */}
                     <div className="update-post">
-                      {post.author.id === auth.currentUser?.uid && (
+                      {post.id === auth.currentUser?.uid && (
                         <button
                           className="update-btn"
                           onClick={() => {
@@ -190,7 +190,7 @@ const TheBeat = () => {
 
                     {/* delete post */}
                     <div className="delete-post">
-                      {post.author.id === auth.currentUser?.uid && (
+                      {post.id === auth.currentUser?.uid && (
                         <button
                           className="delete-btn"
                           onClick={() => {
