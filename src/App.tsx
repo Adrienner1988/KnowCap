@@ -18,13 +18,13 @@ const App = () => {
     <>
     <Nav/>
       <Routes>
-        <Route path='/' element={<Meaning />} />
+        <Route path='/meaning' element={<Meaning />} />
         <Route path='/search' element={<ProductSearch />} />
         <Route path='/post' element={<CreatePost />} />
         <Route path='/beat' element={<TheBeat />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/form' element={<ProfileForm />} />
-        <Route path='/login' element={<LogIn />} />
+        <Route path='/' element={<LogIn />} />
         <Route path='/signup' element={<SignUp />} />   
       </Routes>  
     </>

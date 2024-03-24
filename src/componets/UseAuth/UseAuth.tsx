@@ -2,6 +2,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useState, useEffect } from "react";
 
+
 // Define the the user object
 interface IUser {
   uid: string;
@@ -16,7 +17,9 @@ const useAuth = () => {
     email: "",
   });
 
+
   // Tracking current user
+  // useEffect hook to run on component mount to listen for authentication state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       // Check if a user is logged in
@@ -40,7 +43,7 @@ const useAuth = () => {
       }
     });
 
-    // Unsubscribe from the authentication state changes when the component unmounts
+    // Cleanup function to unsubscribe from the authentication state changes when the component unmounts
     return () => unsubscribe();
   }, []);
 

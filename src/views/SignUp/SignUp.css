@@ -1,9 +1,9 @@
 #rightHalfSU {
     background: url('https://images.pexels.com/photos/6785003/pexels-photo-6785003.jpeg?auto=compress&cs=tinysrgb&w=600');
-    background-size: 100% ;
-    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: center;
     width: 60%;
-    height: 650px;
+    height: 100vh;
     position: absolute;
     right: 0px;
 }
