@@ -60,7 +60,7 @@ const ProfileForm = () => {
           name="displayName"
           value={newDisplayName}
           onChange={(e) => setNewDisplayName(e.target.value)}
-        />
+        />z
       </label>
       <br />
       <label>

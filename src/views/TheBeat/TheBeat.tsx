@@ -20,14 +20,15 @@ interface IBeat {
   products: string;
   author: {
     name: string; 
+    id: string;
   };
 }
 
 // State variables to hold post data and editing information
 const TheBeat = () => {
   const [postList, setPostList] = useState<IBeat[]>([]);
-  const [editPost, setEditPost] = useState("");
-  const postRef = collection(db, "posts");
+  const [editPost, setEditPost] = useState('');
+  const postRef = collection(db, 'posts');
   const [editingPostId, setEditingPostId] = useState<string | null>(null);
 
   // Fetch posts from Firestore when component mounts
@@ -49,7 +50,8 @@ const TheBeat = () => {
           products: doc.data().products,
           id: doc.id,
           author: {
-            name: doc.data().author.name, 
+            name: doc.data().author?.name || '',
+            id: doc.data().author?.id || '',
           },
         }));
 
@@ -77,29 +79,30 @@ const TheBeat = () => {
     }
   };
 
-  // Fetch posts from Firestore
-  const fetchPosts = async () => {
-    try {
-      const data = await getDocs(postRef);
-      const mappedData = data.docs.map((doc) => ({
-        post: doc.data().post,
-        postText: doc.data().postText,
-        imageUrl: doc.data().imageUrl,
-        products: doc.data().products,
-        id: doc.id,
-        author: {
-          name: doc.data().author.name, 
-        },
-      }));
-      setPostList(mappedData);
-    } catch (error) {
-      alert("Error fetching posts");
-    }
-  };
+    // Fetch specific post from Firestore to update
+    const fetchPosts = async () => {
+      try {
+        const data = await getDocs(postRef);
+        const mappedData = data.docs.map((doc) => ({
+          post: doc.data().post,
+          postText: doc.data().postText,
+          imageUrl: doc.data().imageUrl,
+          products: doc.data().products,
+          id: doc.id,
+          author: {
+            name: doc.data().author.name,
+            id: doc.data().author.id,
+          },
+        }));
+        setPostList(mappedData);
+      } catch (error) {
+        alert("Error fetching posts");
+      }
+    };
 
   // Handle click event for editing a post
   const handleEditClick = (postId: string) => {
-    const postToEdit = postList.find((post) => post.id === postId);
+    const postToEdit = postList.find((post) => post.author.id === postId);
     setEditPost(postToEdit?.postText || "");
     setEditingPostId(postId);
   };
@@ -124,7 +127,7 @@ const TheBeat = () => {
       await deleteDoc(postDoc);
     }
     setPostList((prevPostList) =>
-      prevPostList.filter((post) => post.id !== id)
+      prevPostList.filter((post) => post.author.id !== id)
     );
   };
 

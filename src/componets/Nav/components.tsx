@@ -55,9 +55,9 @@ const Nav = () => {
                 <NavLink to={"/profile"}>Profile</NavLink>
               </li>
 
-              <li>
+              {/* <li>
                 <NavLink to={"/form"}>Profile Form</NavLink>
-              </li>
+              </li> */}
 
               <li className="user-name">{user.email}</li>
 

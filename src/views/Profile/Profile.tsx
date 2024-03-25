@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase';
 import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
 import useAuth from '../../componets/UseAuth/UseAuth';
 import { useNavigate } from 'react-router-dom';
 import './Profile.css'
@@ -42,8 +41,11 @@ const Profile = () => {
           imageUrl: doc.data().imageUrl,
           postText: doc.data().postText,
           products: doc.data().products,
-          author: doc.data().author,
           CreatedAt: doc.data().CreatedAt ? doc.data().CreatedAt.toDate() : null,
+          author: {
+            name: doc.data().author?.name || '',
+            id: doc.data().author?.id || '',
+          }
         }));
 
         const userPosts = mappedData.filter(post => post.author.id === user.uid);
@@ -80,11 +82,11 @@ const Profile = () => {
                   <div><p className='postText'>{post.postText}</p></div>
                   <div><p>Favorite Products Used: {post.products}</p></div>
                   <div><p>Created By: {post.author.name}</p></div>
-                  <div>
+                  {/* <div>
                     <p>Created At: {post.CreatedAt
                       ? post.CreatedAt.toDate().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
                       : 'Unknown Date'}
-                    </p></div>
+                    </p></div> */}
                     
                 </div>
               </div>
