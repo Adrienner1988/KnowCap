@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from '
 import { auth } from '../../firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
+import { KCLightBrown } from "../../Images";
 
 
 const LogIn = () => {
@@ -51,7 +52,7 @@ const LogIn = () => {
 
       {/* Login */}
       <div id='rightHalf'>
-        <img className='img-logo-login' src='src/Images/KCLightBrwn.png' height={250} width={250} />
+        <img className='img-logo-login' src={KCLightBrown} height={250} width={250} />
         <div className="login-label">
           <div className="login-container">
             <h3 className='login'>LOGIN</h3>
