@@ -2,12 +2,13 @@ import './Meaning.css';
 import { FaRegHeart } from "react-icons/fa6";
 import { FaRegComment } from "react-icons/fa";
 import { TbLocationShare } from "react-icons/tb";
+import { KCLightBrown, rainbow, orangeEyeShadow, prettyInPink } from "../../Images";
 
 
 const Meaning = () => {
   return (
     <>
-    <img className='meaning-logo' src='src\Images\KCLightBrwn.png' alt="logo" />
+      <img className='meaning-logo' src={KCLightBrown} alt="logo" />
       <h2 className='def-header'>Know Cap</h2>
       <h3 className='def-header-1'>[nō 'kap]</h3>
       
@@ -19,9 +20,9 @@ const Meaning = () => {
       {/* inspo reel */}
       <h1 className='inspo-header'>MAKEUP INSPIRATION</h1>
       <div className='inspo-reel'>
-        <img src='src\Images\rainbow.jpg' className='reel-image' />
-        <img src='src\Images\orangeEyeShadow.jpg' className='reel-image' />
-        <img src='src/Images/prettyInPink.jpg' className='reel-image' />
+        <img src={rainbow} className='reel-image' />
+        <img  src={orangeEyeShadow} className='reel-image' />
+        <img  src={prettyInPink} className='reel-image' />
 
         <h4 className='looksQ'>DO YOU LIKE THESE LOOKS?</h4>
 
