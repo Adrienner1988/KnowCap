@@ -8,10 +8,6 @@ body {
   background-color: #bb8565;
 }
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
 /* color palette */
 /* {
 tan color: #dab59c;

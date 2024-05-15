@@ -2,18 +2,23 @@ import './Meaning.css';
 import { FaRegHeart } from "react-icons/fa6";
 import { FaRegComment } from "react-icons/fa";
 import { TbLocationShare } from "react-icons/tb";
-import { KCLightBrown, rainbow, orangeEyeShadow, prettyInPink } from "../../Images";
+import { counterMakeup, rainbow, orangeEyeShadow, prettyInPink, } from "../../Images";
 
 
 const Meaning = () => {
   return (
     <>
-      <img className='meaning-logo' src={KCLightBrown} alt="logo" />
-      <h2 className='def-header'>Know Cap</h2>
-      <h3 className='def-header-1'>[nō 'kap]</h3>
-      
-      <p className='paragraph'>Know Cap is a play on the expression no cap, meaning "no lie" or "for real". <br></br>Here at Know Cap we are about the facts about makeup, especially in a world where authenticity should matter.<br></br>Search your favorite brands for information on their products or head over to The Beat to see them in action from your friends and influencers and get the facts.</p>
-      <h4 className='know-cap'><em>Know Cap, Know Beauty!</em></h4>
+         <div className="img-container">
+        <img src={counterMakeup} className="header-img" />
+        <div className="overlay-text">
+          <h2 className='def-header'>Know Cap</h2>
+          <h3 className='def-header-1'>[nō 'kap]</h3>
+          <p className="phrase"> Unveiling the Truth in Makeup, Where Authenticity Reigns. <br></br> <em>Know Cap, Know Beauty!</em></p>
+        </div>
+      </div>
+
+      {/* <p className='paragraph'>Know Cap is a play on the expression no cap, meaning "no lie" or "for real". <br></br>Here at Know Cap we are about the facts about makeup, especially in a world where authenticity should matter.<br></br>Search your favorite brands for information on their products or head over to The Beat to see them in action from your friends and influencers and get the facts.</p> */}
+
 
       <hr></hr>
 
@@ -21,8 +26,8 @@ const Meaning = () => {
       <h1 className='inspo-header'>MAKEUP INSPIRATION</h1>
       <div className='inspo-reel'>
         <img src={rainbow} className='reel-image' />
-        <img  src={orangeEyeShadow} className='reel-image' />
-        <img  src={prettyInPink} className='reel-image' />
+        <img src={orangeEyeShadow} className='reel-image' />
+        <img src={prettyInPink} className='reel-image' />
 
         <h4 className='looksQ'>DO YOU LIKE THESE LOOKS?</h4>
 
