@@ -1,8 +1,10 @@
 import "./Nav.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MdOutlineAddAPhoto } from "react-icons/md";
 import { useState } from "react";
-import UseAuth from "../UseAuth/UseAuth"; // Assuming UseAuth is a custom hook for handling authentication
+import UseAuth from "../UseAuth/UseAuth"; 
+// useAuth is a custom hook for handling authentication
+import { KCBlack } from "../../Images";
 
 const Nav = () => {
   // Destructuring user and handleSignOut from the custom authentication hook
@@ -19,9 +21,8 @@ const Nav = () => {
   return (
     <>
       <nav>
-        <Link to={"#"} className="title">
-          Know Cap
-        </Link>
+        <img src={KCBlack} height={200} width={200}/>
+  
         <div className="menu" onClick={handleClick}>
           <span></span>
           <span></span>
