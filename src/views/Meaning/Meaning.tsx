@@ -1,14 +1,14 @@
 import './Meaning.css';
-import { FaRegHeart } from "react-icons/fa6";
-import { FaRegComment } from "react-icons/fa";
-import { TbLocationShare } from "react-icons/tb";
-import { counterMakeup, rainbow, orangeEyeShadow, prettyInPink, } from "../../Images";
+// import { FaRegHeart } from "react-icons/fa6";
+// import { FaRegComment } from "react-icons/fa";
+// import { TbLocationShare } from "react-icons/tb";
+import { counterMakeup, rainbow, orangeEyeShadow, prettyInPink, blackNWhite } from "../../Images";
 
 
 const Meaning = () => {
   return (
     <>
-         <div className="img-container">
+      <div className="img-container">
         <img src={counterMakeup} className="header-img" />
         <div className="overlay-text">
           <h2 className='def-header'>Know Cap</h2>
@@ -23,22 +23,33 @@ const Meaning = () => {
       <hr></hr>
 
       {/* inspo reel */}
-      <h1 className='inspo-header'>MAKEUP INSPIRATION</h1>
+      <h1 className='inspo-header'>FIND INSPIRATION</h1>
       <div className='inspo-reel'>
-        <img src={rainbow} className='reel-image' />
-        <img src={orangeEyeShadow} className='reel-image' />
-        <img src={prettyInPink} className='reel-image' />
+        <div className='wrapper'>
+          <div className='reel-images'>
+            <img src={rainbow} className='reel-image' />
+            <img src={prettyInPink} className='reel-image' />
+            <img src={orangeEyeShadow} className='reel-image' />
+            <img src={blackNWhite} className='reel-image' />
 
-        <h4 className='looksQ'>DO YOU LIKE THESE LOOKS?</h4>
-
-        <div className='bottom-bar'>
-          <ul>
-            <li> <FaRegHeart /> Like </li>
-            <li> <FaRegComment /> Comment </li>
-            <li> <TbLocationShare /> Share </li>
-          </ul>
+            <img src={rainbow} className='reel-image' />
+            <img src={prettyInPink} className='reel-image' />
+            <img src={orangeEyeShadow} className='reel-image' />
+            <img src={blackNWhite} className='reel-image' />
+          </div>
         </div>
       </div>
+
+      {/* <h4 className='looksQ'>DO YOU LIKE THESE LOOKS?</h4>
+
+      <div className='bottom-bar'>
+        <ul>
+          <li> <FaRegHeart /> Like </li>
+          <li> <FaRegComment /> Comment </li>
+          <li> <TbLocationShare /> Share </li>
+        </ul>
+      </div> */}
+
 
       <hr></hr>
       {/* brand spotlight */}

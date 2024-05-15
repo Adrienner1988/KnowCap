@@ -49,9 +49,73 @@ body {
   color: #f8e5c5;
 } */
 
-.know-cap {
+/* Makeup inspo section */
+.inspo-header {
   text-align: center;
-  color: #fff;
+  margin-top: 20px;
+  color: #f8e5c5;
+}
+
+.inspo-reel {
+  width: 100%;
+  margin: auto;
+  padding: 25px;
+}
+
+.reel-image {
+  height: 400px;
+  margin-left: 25px;
+  border-radius: 15px 50px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.looksQ {
+  text-align: center;
+  border: 2px solid #f8e5c5;
+  padding: 10px;
+  margin-top: 12px;
+  color: #f8e5c5;
+  border-radius: 10px;
+}
+
+.bottom-bar {
+  display: flex;
+  justify-content: center;
+  color: #f8e5c5;
+}
+
+li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.inspo-reel .wrapper {
+  overflow: hidden;
+  display: flex;
+  cursor: pointer;
+}
+
+.inspo-reel .wrapper .reel-images {
+  display: flex;
+  animation: swipe 90000ms linear infinite;
+}
+
+.inspo-reel .wrapper .reel-image {
+  flex: 0 0 auto; /* Prevent images from shrinking or growing */
+}
+
+.inspo-reel:hover .wrapper .reel-images {
+  animation-play-state: paused;
+}
+
+@keyframes swipe {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* brand spotlight section */
@@ -87,43 +151,4 @@ body {
 
 .brandName {
   color: #f8e5c5;
-}
-
-/* Makeup inspo section */
-.inspo-header {
-  text-align: center;
-  margin-top: 20px;
-  color: #f8e5c5;
-}
-
-.inspo-reel {
-  max-width: 1000px;
-  margin: auto;
-}
-
-.reel-image {
-  height: 400px;
-  padding-left: 25px;
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-
-.looksQ {
-  text-align: center;
-  border: 2px solid #f8e5c5;
-  padding: 10px;
-  margin-top: 12px;
-  color: #f8e5c5;
-  border-radius: 10px;
-}
-
-.bottom-bar {
-  display: flex;
-  justify-content: center;
-  color: #f8e5c5;
-}
-
-li {
-  display: inline-block;
-  margin-right: 30px;
 }

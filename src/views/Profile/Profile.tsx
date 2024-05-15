@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { auth, db } from '../../firebase';
 import firebase from 'firebase/compat/app';
 import useAuth from '../../components/UseAuth/UseAuth';
 import { useNavigate } from 'react-router-dom';
@@ -68,7 +68,7 @@ const Profile = () => {
 
   return (
     <>
-    <h1 className='profile-header'>Profile</h1>
+      <h1 className='profile-header'>Profile</h1>
       <div className='profile-posts'>
         {posts.length === 0 ? (
           <p>No Post Found</p>

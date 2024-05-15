@@ -32,6 +32,7 @@ nav ul li a:not(.active):hover {
 
 a {
   color: #f8e5c5;
+  transition: 0.3s;
 }
 
 nav .menu {
@@ -80,5 +81,4 @@ nav .menu span {
     width: 100%;
     text-align: left;
   }
-    
 }
