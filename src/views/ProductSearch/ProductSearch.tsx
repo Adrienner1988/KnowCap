@@ -4,6 +4,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import { TbHeartPlus } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { KCLightBrown } from "../../Images";
 
 interface Makeup {
   brand: string;
@@ -89,7 +90,7 @@ const ProductSearch = () => {
     <>
       <img
         className="search-logo"
-        src="src\Images\KCLightBrwn.png"
+        src={KCLightBrown}
         alt="logo"
       />
       <h1 className="search-header">Search your new favorite products here!</h1>
