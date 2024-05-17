@@ -51,7 +51,7 @@ const LogIn = () => {
       <div id='leftHalf'></div>
 
       {/* Login */}
-      <div id='rightHalf' className='p-12 md:p-14 lg:p-16 xl:p-20'>
+      <div id='rightHalf' className='p-1 md:p-16 lg:p-20 xl:p-24'>
         <img className='img-logo-login' src={KCLightBrown} height={250} width={250} />
         <div className="login-label">
           <div className="login-container">
@@ -80,7 +80,7 @@ const LogIn = () => {
           <button className='login-btn'>login</button>
 
           <div className='login-form'>
-            <button id='googleBtn' onClick={signInWithGoogle} className='google-btn '><FcGoogle className='g-icon' /> Log In with  Google</button>
+            <button id='googleBtn' onClick={signInWithGoogle} className='google-btn '><FcGoogle className='g-icon' /> Sign in with Google</button>
           </div>
 
           <div className='signUp-msg'>

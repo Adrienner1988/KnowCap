@@ -1,123 +1,119 @@
 #leftHalf {
-    background: url('https://images.pexels.com/photos/2661256/pexels-photo-2661256.jpeg?auto=compress&cs=tinysrgb&w=600');
-    background-size: 590px 900px;
-    background-repeat: no-repeat;
-    width: 45%;
-    height: 100vh;
-    position: absolute;
-    left: 0px;
+  background: url("https://images.pexels.com/photos/2661256/pexels-photo-2661256.jpeg?auto=compress&cs=tinysrgb&w=600");
+  background-size: 590px 900px;
+  background-repeat: no-repeat;
+  width: 45%;
+  height: 100vh;
+  position: absolute;
+  left: 0px;
 }
 
 #rightHalf {
-    width: 55%;
-    position: absolute;
-    right: 0px;
-    height: 100%;
+  width: 55%;
+  max-width: 100%;
+  position: absolute;
+  right: 0px;
+  height: 100vh;
 }
 
 .login {
-    color: #f8e5c5;
-    font-weight: 500;
+  color: #f8e5c5;
+  font-weight: 500;
 }
 
 .login-label {
-    display: flex;
-    justify-content: start;
+  display: flex;
+  justify-content: start;
 }
 
 .img-logo-login {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-  /* login form */
+/* login form */
 .login-email {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    margin-left: 3px;
-    padding: 6px;
-    padding-left: 5px;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 3px;
+  padding: 6px;
+  padding-left: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .login-password {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    margin-left: 3px;
-    padding-left: 5px;
-    padding: 6px;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 3px;
+  padding: 6px;
+  padding-left: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 /* log in button */
 .login-btn {
-    margin-left: 3px;
-    font-size: 14px;
-    color: #79493d;
-    background-color: #f8e5c5;
-    padding: 5px 10px;
-    border: solid #8e8785 2px;
-    box-shadow: none;
-    border-radius: 50px;
-    transition: 873ms;
-    transform: translateY(0);
-    align-items: center;
-    cursor: pointer;
-    text-transform: uppercase;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-left: 3px;
+  font-size: 14px;
+  color: #79493d;
+  background-color: #f8e5c5;
+  padding: 5px 10px;
+  border: solid #8e8785 2px;
+  box-shadow: none;
+  border-radius: 50px;
+  transition: 873ms;
+  transform: translateY(0);
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .login-btn:hover {
-    transition: 873ms;
-    padding: 8px 20px;
-    transform: translateY(-0px);
-    background-color: #8e8785;
-    color: #f8e5c5;
-    border: none;
-    margin-bottom: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: 873ms;
+  padding: 8px 20px;
+  transform: translateY(-0px);
+  background-color: #8e8785;
+  color: #f8e5c5;
+  border: none;
+  margin-bottom: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 /* Google button */
 .g-icon {
-   display: inline;
+  display: inline;
 }
 
 #googleBtn {
-    margin-top: 10px;
-    padding: 6px;
-    margin-left: 3px;
-    background: white;
-    color: #444;
-    width: 225px;
-    border-radius: 10px;
-    border: thin solid #888;
-    white-space: nowrap;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  }
+  margin-top: 10px;
+  padding: 6px;
+  margin-left: 3px;
+  background: white;
+  color: #444;
+  width: 225px;
+  border-radius: 10px;
+  border: thin solid #888;
+  white-space: nowrap;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 
-  #googleBtn:hover {
-    cursor: pointer;
-    background-color: #8e8785;
-    color: #fff;
-    transition: .3s;
-  }
-
+#googleBtn:hover {
+  cursor: pointer;
+  background-color: #8e8785;
+  color: #fff;
+  transition: 0.3s;
+}
 
 /* sign up message and message link*/
 .signUp-msg {
-    margin-top: 15px;
-}
-
-a {
-    padding-top: 10px;
-    float: left;
-    clear: left;
+  color: #f8e5c5;
+  cursor: pointer;
+  margin-top: 15px;
 }
 
 a:hover {
-    color: #d8cfdc;
-  }
+  color: #d8cfdc;
+}
