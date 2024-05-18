@@ -18,9 +18,14 @@ body {
   display: inline-block;
 }
 
+.img-container {
+  width: 100vw;
+  overflow: hidden;
+}
+
 .header-img {
   display: block;
-  width: 100%;
+  width: 100vw;
   height: auto;
 }
 
@@ -57,16 +62,17 @@ body {
 }
 
 .inspo-reel {
-  width: 100%;
+  width: 100vw;
   margin: auto;
-  padding: 25px;
+  overflow: hidden;
 }
 
 .reel-image {
   height: 400px;
   margin-left: 25px;
   border-radius: 15px 50px;
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
 .looksQ {
@@ -97,7 +103,7 @@ li {
 
 .inspo-reel .wrapper .reel-images {
   display: flex;
-  animation: swipe 90000ms linear infinite;
+  animation: swipe 8000ms linear infinite;
 }
 
 .inspo-reel .wrapper .reel-image {
