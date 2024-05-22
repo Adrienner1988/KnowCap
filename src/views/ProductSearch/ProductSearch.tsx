@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./ProductSearch.css";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, deleteDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
-import { TbHeartPlus } from "react-icons/tb";
+import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { KCLightBrown } from "../../Images";
 
@@ -76,6 +76,8 @@ const ProductSearch = () => {
     }
   };
 
+
+
   // const toggleReadMore = (itemId: string) => {
   //   setShowMore((prevExpandedItems) => {
   //     if (prevExpandedItems.includes(itemId)) {
@@ -96,8 +98,7 @@ const ProductSearch = () => {
       <h1 className="search-header">Search your new favorite products here!</h1>
       <p className="paragraph">
         Search your favorite brands for information on their products or head
-        over to The Beat to see them in action from your friends and influencers
-        and get the facts.
+        over to The Beat to see them in action from your friends and influencers.
       </p>
 
       {/* search input */}
@@ -317,7 +318,7 @@ const ProductSearch = () => {
                 onClick={() => addToList(products[0])}
                 id="btn"
               >
-                Add to Favorite List <TbHeartPlus />
+                <FaRegHeart />
               </button>
             </div>
           ))}

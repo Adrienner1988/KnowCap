@@ -48,10 +48,12 @@ const LogIn = () => {
   return (
     <>
       {/* Image */}
-      <div id='leftHalf'></div>
+      <div id='leftHalf' className='xs:max-lg: w-1/2 h-screen'>
+        <img src='https://images.pexels.com/photos/2661256/pexels-photo-2661256.jpeg?auto=compress&cs=tinysrgb&w=600' className=' max-w-full h-screen'/>
+      </div>
 
       {/* Login */}
-      <div id='rightHalf' className='p-1 md:p-16 lg:p-20 xl:p-24'>
+      <div id='rightHalf' className='p-2'>
         <img className='img-logo-login' src={KCLightBrown} height={250} width={250} />
         <div className="login-label">
           <div className="login-container">
@@ -79,16 +81,17 @@ const LogIn = () => {
             autoComplete="current-password" required />
           <button className='login-btn'>login</button>
 
-          <div className='login-form'>
+          <div className='login-form '>
+      
             <button id='googleBtn' onClick={signInWithGoogle} className='google-btn '><FcGoogle className='g-icon' /> Sign in with Google</button>
-          </div>
+           
+              <Link className='signUp-msg' to="/signup">Don't have an account? Sign Up Here!</Link>
+      
 
-          <div className='signUp-msg'>
-            <Link to="/signup">{"Don't have an account? Sign Up Here!"}</Link>
+        
           </div>
         </form>
       </div>
-
     </>
   )
 }

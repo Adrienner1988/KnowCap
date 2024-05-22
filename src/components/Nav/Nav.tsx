@@ -21,7 +21,7 @@ const Nav = () => {
   return (
     <>
       <nav>
-        <img src={KCBlack} height={200} width={200}/>
+        <img src={KCBlack} height={175} width={175}/>
   
         <div className="menu" onClick={handleClick}>
           <span></span>
@@ -29,7 +29,7 @@ const Nav = () => {
           <span></span>
         </div>
         {/* Assigning the ul element to open when menuOpen is true, and removes the class wheen it's when false */}
-        <ul className={menuOpen ? "open" : ""}>
+        <ul className= {menuOpen ? "open" : ""} >
           {/* Conditional rendering based on user authentication */}
           {/* If logged in only show user log Out */}
           {user.email ? (
