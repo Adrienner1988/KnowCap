@@ -44,6 +44,7 @@ nav .menu {
   justify-content: space-between;
   width: 2.25rem;
   height: 2rem;
+  cursor: pointer;
 }
 
 nav .menu span {
@@ -71,6 +72,11 @@ nav .menu span {
     display: none;
     flex-direction: column;
     width: 50%;
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+    background-color: #1f1b1d;
+    z-index: 1;
   }
 
   nav ul.open {

@@ -13,7 +13,7 @@ const Nav = () => {
   // State to manage the open/closed state of the menu
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleClick = () => {
+  const openNav = () => {
     // Function to toggle the menuOpen state setting it to false or not open
     setMenuOpen(!menuOpen);
   };
@@ -21,9 +21,9 @@ const Nav = () => {
   return (
     <>
       <nav>
-        <img src={KCBlack} height={175} width={175}/>
+        <img src={KCBlack} height={175} width={175} alt="logo"/>
   
-        <div className="menu" onClick={handleClick}>
+        <div className="menu" onClick={openNav}>
           <span></span>
           <span></span>
           <span></span>
