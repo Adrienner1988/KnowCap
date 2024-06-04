@@ -1,14 +1,17 @@
 export default {
-  content: [
-  "./index.html",
-  "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      screens: { 'xs': { 'max': '640px' },
+    screens: {
+      phone: "576px",
+      tablet: "768px",
+      smLaptop: "922px",
+      lg: "1124px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
+    extend: {
+    },
+    plugins: [],
   },
-  plugins: [],
-},
-}
+};
 

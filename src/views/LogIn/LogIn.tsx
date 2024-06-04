@@ -1,6 +1,6 @@
 import './LogIn.css';
 import { useState, FormEvent } from 'react';
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
@@ -12,7 +12,7 @@ const LogIn = () => {
     email: '',
     password: ''
   })
-  
+
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate()
 
@@ -38,7 +38,7 @@ const LogIn = () => {
   // Google sign in
   const signInWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);  
+      await signInWithPopup(auth, googleProvider);
       navigate('/meaning');
     } catch (error) {
       alert("Error signing in with Google");
@@ -48,12 +48,12 @@ const LogIn = () => {
   return (
     <>
       {/* Image */}
-      <div id='leftHalf' className='xs:max-lg: w-1/2 h-screen'>
-        <img src='https://images.pexels.com/photos/2661256/pexels-photo-2661256.jpeg?auto=compress&cs=tinysrgb&w=600' className=' max-w-full h-screen'/>
+      <div id='leftHalf'>
+        <img src='https://images.pexels.com/photos/2661256/pexels-photo-2661256.jpeg?auto=compress&cs=tinysrgb&w=600'/>
       </div>
 
       {/* Login */}
-      <div id='rightHalf' className='p-2'>
+      <div id='rightHalf'>
         <img className='img-logo-login' src={KCLightBrown} height={250} width={250} />
         <div className="login-label">
           <div className="login-container">
@@ -82,13 +82,9 @@ const LogIn = () => {
           <button className='login-btn'>login</button>
 
           <div className='login-form '>
-      
             <button id='googleBtn' onClick={signInWithGoogle} className='google-btn '><FcGoogle className='g-icon' /> Sign in with Google</button>
-           
-              <Link className='signUp-msg' to="/signup">Don't have an account? Sign Up Here!</Link>
-      
 
-        
+            <Link className='signUp-msg' to="/signup">Don't have an account? Sign Up Here!</Link>
           </div>
         </form>
       </div>
