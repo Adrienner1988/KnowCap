@@ -2,7 +2,7 @@ import "./Nav.css";
 import { NavLink } from "react-router-dom";
 import { MdOutlineAddAPhoto } from "react-icons/md";
 import { useState } from "react";
-import UseAuth from "../UseAuth/UseAuth"; 
+import UseAuth from "../UseAuth/UseAuth";
 // useAuth is a custom hook for handling authentication
 import { KCBlack } from "../../Images";
 
@@ -21,15 +21,15 @@ const Nav = () => {
   return (
     <>
       <nav>
-        <img src={KCBlack} height={175} width={175} alt="logo"/>
-  
+        <img src={KCBlack} height={175} width={175} alt="logo" />
+
         <div className="menu" onClick={openNav}>
           <span></span>
           <span></span>
           <span></span>
         </div>
         {/* Assigning the ul element to open when menuOpen is true, and removes the class wheen it's when false */}
-        <ul className= {menuOpen ? "open" : ""} >
+        <ul className={menuOpen ? "open" : ""} >
           {/* Conditional rendering based on user authentication */}
           {/* If logged in only show user log Out */}
           {user.email ? (
@@ -43,8 +43,7 @@ const Nav = () => {
               </li>
 
               <li>
-                <NavLink to={"/post"}>
-                  Create Post <MdOutlineAddAPhoto />
+                <NavLink to={"/post"} className="navLinkContainer">Create Post <MdOutlineAddAPhoto className="iconPadding" />
                 </NavLink>
               </li>
 
