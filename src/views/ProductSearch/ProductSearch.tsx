@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "./ProductSearch.css";
 import { doc, setDoc, deleteDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
-import { FaRegHeart } from "react-icons/fa";
+import { RiHeartsLine } from "react-icons/ri";
+import { RiHeartsFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { KCLightBrown } from "../../Images";
 
@@ -18,7 +19,7 @@ interface Makeup {
 const ProductSearch = () => {
   const [products, setProducts] = useState<Makeup[]>([]);
   const [searchProducts, setSearchProducts] = useState<string>("");
-  // const [showMore, setShowMore] = useState<string[]>([]);
+  const [favoriteProducts, setFavoriteProducts] = useState({})
 
   useEffect(() => {
     if (searchProducts) {
@@ -50,25 +51,37 @@ const ProductSearch = () => {
 
   const addToList = async (selectedProduct: Makeup) => {
     if (auth.currentUser) {
-      const productData = {
-        brand: selectedProduct.brand,
-        image: selectedProduct.image,
-        item_name: selectedProduct.item_name,
-        category: selectedProduct.category,
-        description: selectedProduct.description,
-        product_link: selectedProduct.product_link,
-      };
+      if (favoriteProducts) {
+        await deleteDoc(
+          doc(db,
+            "users",
+            auth.currentUser.uid,
+            "FavList",
+            selectedProduct.brand)
+        );
+        alert(`${selectedProduct.item_name} has been removed from your Favorites List.`);
+      } else {
+        const productData = {
+          brand: selectedProduct.brand,
+          image: selectedProduct.image,
+          item_name: selectedProduct.item_name,
+          category: selectedProduct.category,
+          description: selectedProduct.description,
+          product_link: selectedProduct.product_link,
+        };
 
-      await setDoc(
-        doc(
-          db,
-          "users",
-          auth.currentUser.uid,
-          "FavList",
-          selectedProduct.brand
-        ),
-        productData
-      );
+        await setDoc(
+          doc(
+            db,
+            "users",
+            auth.currentUser.uid,
+            "FavList",
+            selectedProduct.brand
+          ),
+          productData
+        );
+      }
+      setFavoriteProducts(prevState => !prevState);
 
       alert(
         `${selectedProduct.item_name} has been added to your Favorites List.`
@@ -76,17 +89,6 @@ const ProductSearch = () => {
     }
   };
 
-
-
-  // const toggleReadMore = (itemId: string) => {
-  //   setShowMore((prevExpandedItems) => {
-  //     if (prevExpandedItems.includes(itemId)) {
-  //       return prevExpandedItems.filter((id) => id !== itemId);
-  //     } else {
-  //       return [...prevExpandedItems, itemId];
-  //     }
-  //   });
-  // }
 
   return (
     <>
@@ -308,17 +310,12 @@ const ProductSearch = () => {
               >
                 Go to site
               </Link>
-              {/* <p className='description'>{item.description}
-              {showMore.includes(item.item_name) ? item.description : `${item.description.slice(0, 200)}...`}
-              <button className='readMore' onClick={() => toggleReadMore(item.item_name)}>
-                {showMore.includes(item.item_name) ? 'Read Less' : 'Read More'}</button></p> */}
-
+            
               <button
                 className="favList"
                 onClick={() => addToList(products[0])}
-                id="btn"
-              >
-                <FaRegHeart />
+                id="btn">
+                {favoriteProducts ? <RiHeartsFill /> : <RiHeartsLine />}
               </button>
             </div>
           ))}
