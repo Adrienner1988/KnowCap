@@ -2,7 +2,7 @@ import './Meaning.css';
 // import { FaRegHeart } from "react-icons/fa6";
 // import { FaRegComment } from "react-icons/fa";
 // import { TbLocationShare } from "react-icons/tb";
-import { counterMakeup, rainbow, orangeEyeShadow, prettyInPink, blackNWhite } from "../../Images";
+import { counterMakeup, rainbow, orangeEyeShadow, prettyInPink, blackNWhite, malani } from "../../Images";
 
 
 const Meaning = () => {
@@ -17,7 +17,8 @@ const Meaning = () => {
         </div>
       </div>
 
-      {/* <p className='paragraph'>Know Cap is a play on the expression no cap, meaning "no lie" or "for real". <br></br>Here at Know Cap we are about the facts about makeup, especially in a world where authenticity should matter.<br></br>Search your favorite brands for information on their products or head over to The Beat to see them in action from your friends and influencers and get the facts.</p> */}
+      <h1 className='aboutUs'>WHO WE ARE</h1>
+      <p className='paragraph'>Know Cap is a play on the expression no cap, meaning "no lie" or "for real". <br></br>Here at Know Cap we are about the facts about makeup, especially in a world where authenticity should matter.<br></br>Search your favorite brands for information on their products or head over to The Beat to see them in action from your friends and influencers and get the facts.</p>
 
 
       <hr></hr>
@@ -50,11 +51,10 @@ const Meaning = () => {
         </ul>
       </div> */}
 
-
       <hr></hr>
       {/* brand spotlight */}
       <div className='spotlight'>
-        <img className='brand-spotlight-image' src="src\Images\malani.jpg" alt="malani-lipstick" />
+        <img className='brand-spotlight-image' src={malani} alt="malani-lipstick" />
 
         <h3 className='spotlight-brand'>Brand Spotlight</h3>
         <h2 className='brandName'>Milani</h2>

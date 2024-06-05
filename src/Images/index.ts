@@ -6,5 +6,6 @@ import counterMakeup from "./counterMakeup.jpg";
 import makeupCounter from "./makeupCounter.jpg";
 import KCBlack from "./KCBlack.png";
 import blackNWhite from "./blackNWhite.jpg";
+import malani from "./malani.jpg";
 
-export { KCLightBrown, rainbow, orangeEyeShadow, prettyInPink, counterMakeup, makeupCounter, KCBlack, blackNWhite}
+export { KCLightBrown, rainbow, orangeEyeShadow, prettyInPink, counterMakeup, makeupCounter, KCBlack, blackNWhite, malani}
