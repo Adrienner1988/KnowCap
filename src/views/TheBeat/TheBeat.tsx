@@ -1,11 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
-import {
-  getDocs,
-  collection,
-  deleteDoc,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
+import {  getDocs, collection, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { auth } from "../../firebase";
 import "./TheBeat.css";
@@ -19,7 +13,7 @@ interface IBeat {
   postText: string;
   products: string;
   author: {
-    name: string; 
+    name: string;
     id: string;
   };
 }
@@ -79,26 +73,26 @@ const TheBeat = () => {
     }
   };
 
-    // Fetch specific post from Firestore to update
-    const fetchPosts = async () => {
-      try {
-        const data = await getDocs(postRef);
-        const mappedData = data.docs.map((doc) => ({
-          post: doc.data().post,
-          postText: doc.data().postText,
-          imageUrl: doc.data().imageUrl,
-          products: doc.data().products,
-          id: doc.id,
-          author: {
-            name: doc.data().author.name,
-            id: doc.data().author.id,
-          },
-        }));
-        setPostList(mappedData);
-      } catch (error) {
-        alert("Error fetching posts");
-      }
-    };
+  // Fetch specific post from Firestore to update
+  const fetchPosts = async () => {
+    try {
+      const data = await getDocs(postRef);
+      const mappedData = data.docs.map((doc) => ({
+        post: doc.data().post,
+        postText: doc.data().postText,
+        imageUrl: doc.data().imageUrl,
+        products: doc.data().products,
+        id: doc.id,
+        author: {
+          name: doc.data().author.name,
+          id: doc.data().author.id,
+        },
+      }));
+      setPostList(mappedData);
+    } catch (error) {
+      alert("Error fetching posts");
+    }
+  };
 
   // Handle click event for editing a post
   const handleEditClick = (postId: string) => {

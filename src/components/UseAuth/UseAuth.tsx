@@ -1,6 +1,7 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 // Define the the user object
@@ -9,6 +10,7 @@ interface IUser {
   email: string;
 }
 
+const navigate = useNavigate();
 // Custom hook for managing user authentication
 const useAuth = () => {
   // State to hold user information and initializing uid and email
@@ -30,6 +32,7 @@ const useAuth = () => {
             uid: user.uid,
             email: user.email,
           });
+          navigate("/meaning")
         } else {
           // Alert for invalid email or password
           alert("Invalid email or password");
@@ -42,7 +45,6 @@ const useAuth = () => {
         });
       }
     });
-
     // Cleanup function to unsubscribe from the authentication state changes when the component unmounts
     return () => unsubscribe();
   }, []);
